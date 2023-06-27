@@ -6,9 +6,6 @@ article = """
 De milieucommissie van het Europees Parlement is het niet gelukt om een compromis te bereiken over de natuurherstelwet van Eurocommissaris Frans Timmermans. Dit betekent dat in het Europees Parlement alles weer open ligt. Over twee weken stemt het voltallig parlement over de wet.
 """
 
-# Convert the article into a list of words
-words = list(set(word.lower() for word in article.split()))
-
 # Display the article
 st.write(article)
 
@@ -27,10 +24,6 @@ if st.button("Save"):
     selected_words = st.session_state.get('selected_words', [])
     selected_words.append(word_memo)
     st.session_state.selected_words = selected_words
-
-    # Reset the selected_word and memo variables
-    selected_word = ''
-    memo = ''
 
 # Display the selected words and memos
 st.write("Selected words:")
