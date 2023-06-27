@@ -34,6 +34,6 @@ if st.button("Save"):
 
 # Display the selected words and memos in a table
 st.write("Selected words:")
-df = pd.DataFrame(st.session_state.selected_words)
-df_word = df.T
+arr = st.session_state.selected_words.keys()
+st.write(arr)
 st.dataframe(df_word)
