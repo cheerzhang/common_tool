@@ -38,8 +38,8 @@ layout = go.Layout(
         camera=dict(
             eye=dict(x=1.5, y=1.5, z=1.5)  # Set the camera position (adjust the values as needed)
         ),
-        aspectmode="manual",
-        aspectratio=dict(x=room_length, y=room_width, z=room_height)
+        # aspectmode="manual",
+        # aspectratio=dict(x=room_length, y=room_width, z=room_height)
     ),
     margin=dict(r=0, l=0, b=0, t=0)
 )
