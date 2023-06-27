@@ -39,7 +39,7 @@ room_kitchen = go.Mesh3d(
 room_roof_1 = go.Mesh3d(
     x=[0, 3.7, 3.7,   0, 0],
     y=[0, 0,   11.79, 11.79, 0],
-    z=[3, 3, 3, 3, 3],
+    z=[2.7, 2.7, 2.7, 2.7, 2.7],
     color='lightgray',
     opacity=0.7
 )
