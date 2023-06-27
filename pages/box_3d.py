@@ -32,7 +32,7 @@ data = room_walls + [room_roof]
 # Create the 3D layout
 layout = go.Layout(
     scene=dict(
-        xaxis=dict(visible=False),
+        xaxis=dict(visible=True),
         yaxis=dict(visible=False),
         zaxis=dict(visible=False),
         aspectmode="manual",
