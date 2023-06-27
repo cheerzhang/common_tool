@@ -17,6 +17,28 @@ room_walls = [
     )
 ]
 
+# Create room floor
+room_walls = [
+    go.Mesh3d(
+        x=[0, 3.7, 3.7,   0, 0],
+        y=[0, 0,   11.79, 11.79, 0],
+        z=[0, 0, 0, 0, 0],
+        color='lightgray',
+        opacity=0.7
+    )
+]
+
+# create a kitchen
+room_kitchen = [
+    go.Mesh3d(
+        x=[0,    3.7,  3.7,   0,     0],
+        y=[7.99, 7.99, 11.79, 11.79, 0],
+        z=[0, 0, 0, 0, 0],
+        color='orange',
+        opacity=0.7
+    )
+]
+
 # Create a room roof
 room_roof_1 = go.Mesh3d(
     x=[0, 3.7, 3.7,   0, 0],
