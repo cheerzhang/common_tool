@@ -9,8 +9,8 @@ room_length = 8
 # Create room walls
 room_walls = [
     go.Mesh3d(
-        x=[0, room_length, room_length, 0, 0],
-        y=[0, 0, room_height, room_height, 0],
+        x=[0, 3.7, 3.7,   0, 0],
+        y=[0, 0,   11.79, 11.79, 0],
         z=[0, 0, 0, 0, 0],
         color='lightgray',
         opacity=0.7
@@ -19,8 +19,8 @@ room_walls = [
 
 # Create a room roof
 room_roof_1 = go.Mesh3d(
-    x=[0, 3.7, 3.7, 0, 0],
-    y=[0, 0,   5,   5, 0],
+    x=[0, 3.7, 3.7,   0, 0],
+    y=[0, 0,   11.79, 11.79, 0],
     z=[3, 3, 3, 3, 3],
     color='lightgray',
     opacity=0.7
