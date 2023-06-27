@@ -32,8 +32,7 @@ if st.button("Save"):
     selected_word = ''
     memo = ''
 
-# Display the selected words and memos
+# Display the selected words and memos in a table
 st.write("Selected words:")
-for item in st.session_state.selected_words:
-    word, memo = next(iter(item.items()))
-    st.write(f"{word}: {memo}")
+df = pd.DataFrame(st.session_state.selected_words)
+st.table(df)
