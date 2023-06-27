@@ -18,10 +18,10 @@ room_walls = [
 ]
 
 # Create a room roof
-room_roof = go.Mesh3d(
+room_roof_1 = go.Mesh3d(
     x=[0, room_length, room_length, 0, 0],
     y=[0, 0, 0, 0, 0],
-    z=[room_width, room_width, room_width, room_width, room_width],
+    z=[3, 3, 3, 3, 3],
     color='lightgray',
     opacity=0.7
 )
@@ -36,7 +36,7 @@ table = go.Mesh3d(
 )
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_roof, table]
+data = room_walls + [room_roof_1, table]
 
 # Create the 3D layout
 layout = go.Layout(
