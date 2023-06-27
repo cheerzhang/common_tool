@@ -29,7 +29,7 @@ room_floor = go.Mesh3d(
 # create a kitchen
 room_kitchen = go.Mesh3d(
     x=[0,    3.7,  3.7,   0,     0],
-    y=[7.99, 7.99, 11.79, 11.79, 0],
+    y=[7.99, 7.99, 11.79, 11.79, 7.99],
     z=[0, 0, 0, 0, 0],
     color='orange',
     opacity=0.7
