@@ -2,11 +2,23 @@ import streamlit as st
 
 # Sample article
 article = """
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit nisi eget ex consectetur, ac pharetra massa eleifend. Integer vitae elit efficitur, tempor erat et, malesuada libero. Nulla facilisi. Fusce id mauris at urna congue tincidunt ac sit amet justo. Morbi eu mauris nec purus condimentum tempus at id odio. Vestibulum facilisis, magna non mattis varius, dolor orci volutpat sapien, at gravida elit sem eu arcu. Nulla faucibus viverra quam, in rutrum tellus efficitur non. In nec rutrum lacus. Donec in urna nec purus gravida vestibulum nec id urna. Suspendisse sed diam semper, ultrices odio id, auctor ex. Fusce in ligula sit amet justo iaculis suscipit. Cras congue libero urna, vel tincidunt orci tristique vel.
+De milieucommissie van het Europees Parlement is het niet gelukt om een compromis te bereiken over de natuurherstelwet van Eurocommissaris Frans Timmermans. Dit betekent dat in het Europees Parlement alles weer open ligt. Over twee weken stemt het voltallig parlement over de wet.
 
-Sed id mauris vitae ipsum luctus fermentum. In volutpat condimentum nisi, eget tincidunt urna tincidunt vel. Fusce pretium tellus vel mi hendrerit, at feugiat elit consectetur. Nunc venenatis turpis lectus, ut dignissim tortor interdum id. Nullam efficitur libero id lectus auctor, non faucibus mi ultrices. Mauris volutpat est sit amet odio iaculis, nec fermentum nulla fringilla. Aliquam at nisi libero. Quisque et leo vitae turpis facilisis dignissim vel in turpis. Sed sollicitudin ligula id elit euismod auctor. Suspendisse potenti. Nam mollis lectus id turpis semper, et facilisis arcu lobortis.
+Twee weken geleden werd er in de milieucommissie ook al gestemd over de natuurherstelwet. Toen bleek er geen meerderheid te zijn om de wet te verwerpen. Daarna werd geprobeerd een compromis te bereiken over aanpassing van de wet. Daarvoor werden 2500 amendementen ingediend. De stemming daarover duurde zolang dat die vandaag werden afgemaakt. Maar nog altijd blijven de Europarlementariërs compleet verdeeld.
 
-Praesent id feugiat felis. Nulla tincidunt nisl id mauris rhoncus iaculis. Curabitur volutpat varius augue, eu vulputate sem rhoncus a. Sed euismod, elit id tempor feugiat, enim sem finibus mauris, et dictum tellus sem id nisl. Curabitur fermentum diam et erat tristique, sed condimentum tellus hendrerit. Sed tempus nisl nec tellus malesuada, at dictum nunc fermentum. Morbi auctor justo eget dui ultricies semper. In ac nunc at enim ullamcorper scelerisque id et mi. Cras eget convallis nisi. Integer blandit elit justo, et consequat ligula tincidunt ac. Aliquam ullamcorper congue malesuada. Sed bibendum vulputate lorem, id scelerisque lectus finibus in. Proin in eros mauris. Sed sed libero id purus cursus eleifend.
+De natuurherstelwet is de afgelopen weken een politiek hangijzer geworden. Volgens de Europese christendemocraten is de wet onwerkbaar. Ze waarschuwen voor grote gevolgen voor de boeren. Volgens de linkse partijen is dit onzin en zou de EVP enkel tegen zijn als campagnestrategie voor de Europese verkiezingen van volgend jaar.
+
+Meer biodiversiteit
+Het doel van de wet is om de biodiversiteit in de EU flink te verbeteren. Volgens de Europese Commissie verkeert 81 procent van de Europese natuur in slechte staat.
+
+De EU-landen wisten vorige week al wel een akkoord te sluiten over de natuurherstelwet. Dat werd een afgezwakte versie van het oorspronkelijke voorstel. Daarin stond dat de landen zouden moeten 'verzekeren' dat delen van natuur niet verder achteruit mogen gaan, een resultaatverplichting. Maar in het compromis van de EU-landen is van een resultaatverplichting geen sprake meer. Alleen nog van een inspanningsverplichting: je best doen dus.
+
+Felle politieke discussie
+Mohammed Chahim, Europarlementariër voor de PvdA, denkt dat er een goed kans is dat er in juli wel een meerderheid in het parlement is voor de wet. "Tijdens de plenaire stemming in juli kunnen de EVP'ers hun progressieve leden niet meer vervangen door de conservatieve, zoals ze vandaag deden uit electorale wanhoop klimaatontkenners blind achterna te hollen."
+
+Bas Eickhout van Groenlinks heeft ook goede hoop op een meerderheid in het Europees Parlement in juli. Hij wijst op een "ongekend agressieve campagne" van de christendemocraten. CDA-Europarlementariër Esther de Lange is tegen de natuurherstelwet en schat de kansen voor een meerderheid in juli anders in. "Dat ook Italië, Polen, Finland, Zweden, België en Oostenrijk in de raad niet met het voorstel konden instemmen, laat zien dat er nog veel zorgen leven. Het voorstel zit verkeerd in elkaar en dus moet de Europese Commissie wat ons betreft terug naar de tekentafel om deze zorgen weg te nemen."
+
+De discussie over de natuurherstelwet gaat in alle hevigheid door. In de week van 10 juli volgt de laatste stemming in het Europees Parlement, daarna moeten de 27 landen en het EP samen onderhandelen over een eindvoorstel voor de wet. Die ligt er dan op zijn vroegst volgend voorjaar, vlak voor de Europese verkiezingen.
 """
 
 # Convert the article into a list of words
