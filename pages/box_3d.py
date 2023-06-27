@@ -34,7 +34,7 @@ layout = go.Layout(
     scene=dict(
         xaxis=dict(visible=True),
         yaxis=dict(visible=True),
-        zaxis=dict(visible=False),
+        zaxis=dict(visible=True),
         aspectmode="manual",
         aspectratio=dict(x=room_length, y=room_width, z=room_height)
     ),
