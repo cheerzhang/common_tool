@@ -30,6 +30,7 @@ def play_game(player_move):
 # Main page content
 st.markdown("# Game - Rock, Paper, Scissors ❄️")
 st.write("Welcome to the Rock, Paper, Scissors game!")
+st.sidebar.markdown("# Rock, Paper, Scissors game ❄️")
 
 # Main game logic
 def main():
