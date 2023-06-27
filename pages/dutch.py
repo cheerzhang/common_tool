@@ -7,7 +7,7 @@ De milieucommissie van het Europees Parlement is het niet gelukt om een compromi
 """
 
 # Convert the article into a list of words
-words = article.split()
+words = list(set(word.lower() for word in article.split()))
 
 # Display the article
 st.write(article)
