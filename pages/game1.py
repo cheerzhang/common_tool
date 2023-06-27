@@ -1,42 +1,49 @@
 import streamlit as st
 import random
 
-def run_game():
-    st.title("Number Guessing Game")
-    st.write("I'm thinking of a number between 1 and 100. Can you guess it?")
+# Define the possible moves
+moves = ["Rock", "Paper", "Scissors"]
 
-    # Generate a random number
-    target_number = random.randint(1, 100)
+# Define the game logic
+def play_game(player_move):
+    # Generate a random move for the computer
+    computer_move = random.choice(moves)
 
-    # Initialize the number of guesses
-    num_guesses = 0
+    # Determine the winner
+    if player_move == computer_move:
+        result = "It's a tie!"
+    elif (
+        (player_move == "Rock" and computer_move == "Scissors")
+        or (player_move == "Paper" and computer_move == "Rock")
+        or (player_move == "Scissors" and computer_move == "Paper")
+    ):
+        result = "You win!"
+    else:
+        result = "You lose!"
 
-    while True:
-        # Get user input
-        guess = st.number_input("Enter your guess:", min_value=1, max_value=100, step=1)
+    # Display the game result
+    st.write(f"You chose: {player_move}")
+    st.write(f"Computer chose: {computer_move}")
+    st.write(result)
 
-        # Increase the number of guesses
-        num_guesses += 1
-
-        # Compare the guess with the target number
-        if guess < target_number:
-            st.write("Too low! Guess higher.")
-        elif guess > target_number:
-            st.write("Too high! Guess lower.")
-        else:
-            st.write(f"Congratulations! You guessed the number {target_number} correctly in {num_guesses} attempts.")
-            break
 
 # Main page content
 st.markdown("# Tarot ❄️")
 st.write("Welcome to the Tarot game!")
 
-# Sidebar
-st.sidebar.markdown("# Tarot ❄️")
+# Main game logic
+def main():
+    st.title("Rock, Paper, Scissors")
+    st.write("Make your move:")
 
-# Add game section to main page
-st.header("Number Guessing Game")
+    # Let the player select their move
+    player_move = st.radio("Select your move", moves)
 
-if __name__ == '__main__':
-    run_game()
+    # Play the game when the player clicks the "Play" button
+    if st.button("Play"):
+        play_game(player_move)
+
+# Run the game
+if __name__ == "__main__":
+    main()
 
