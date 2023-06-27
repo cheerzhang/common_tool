@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Sample article
 article = """
@@ -11,19 +12,25 @@ words = article.split()
 # Display the article
 st.write(article)
 
-# Function to save the selected word
-def save_word(word):
-    selected_words = st.session_state.get('selected_words', [])
-    if word not in selected_words:
-        selected_words.append(word)
-        st.session_state.selected_words = selected_words
+# Initialize selected words as an empty list
+selected_words = []
 
 # Loop through the words and add hover functionality
 for word in words:
-    hover_text = f'<span style="background-color: yellow;">{word}</span>'
-    st.markdown(f'<span title="Click to save" style="cursor: pointer;">{hover_text}</span>', unsafe_allow_html=True)
-    if st.markdown_clicks():
-        save_word(word)
+    st.markdown(
+        f'<span title="Click to save" style="cursor: pointer;" onclick="saveWord(\'{word}\')">{word}</span>',
+        unsafe_allow_html=True
+    )
 
-# Display the selected words
-st.write("Selected words:", st.session_state.selected_words)
+# JavaScript function to save the clicked word
+save_word_script = """
+<script>
+function saveWord(word) {
+    // Send the word to the server or perform any other desired action
+    console.log("Saving word:", word);
+}
+</script>
+"""
+
+# Display the JavaScript code
+st.write(save_word_script, unsafe_allow_html=True)
