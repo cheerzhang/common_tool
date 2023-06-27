@@ -26,8 +26,17 @@ room_roof = go.Mesh3d(
     opacity=0.7
 )
 
+# Create a table
+table = go.Mesh3d(
+    x=[1, 2, 2, 1, 1],
+    y=[1, 1, 2, 2, 1],
+    z=[0, 0, 0, 0, 0.5],
+    color='red',
+    opacity=0.7
+)
+
 # Combine room walls and roof into a data list
-data = room_walls + [room_roof]
+data = room_walls + [room_roof, table]
 
 # Create the 3D layout
 layout = go.Layout(
@@ -36,7 +45,7 @@ layout = go.Layout(
         yaxis=dict(visible=True),
         zaxis=dict(visible=True),
         camera=dict(
-            eye=dict(x=4, y=4, z=4)  # Set the camera position (adjust the values as needed)
+            eye=dict(x=10, y=3, z=3)  # Set the camera position (adjust the values as needed)
         ),
         # aspectmode="manual",
         # aspectratio=dict(x=room_length, y=room_width, z=room_height)
