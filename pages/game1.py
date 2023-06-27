@@ -1,9 +1,5 @@
-import streamlit as st
+iimport streamlit as st
 import random
-
-
-st.markdown("# Tarot ❄️")
-st.sidebar.markdown("# Tarot ❄️")
 
 def run_game():
     st.title("Number Guessing Game")
@@ -31,5 +27,13 @@ def run_game():
             st.write(f"Congratulations! You guessed the number {target_number} correctly in {num_guesses} attempts.")
             break
 
-if __name__ == '__main__':
-    run_game()
+# Main page content
+st.markdown("# Game - Guss Number ❄️")
+st.write("Welcome to the Number Gussing game!")
+
+# Sidebar
+st.sidebar.markdown("# Game - Guss Number ❄️")
+
+# Add game section to main page
+st.header("Number Guessing Game")
+run_game()
