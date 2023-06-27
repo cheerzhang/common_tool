@@ -36,3 +36,4 @@ if st.button("Save"):
 st.write("Selected words:")
 df = pd.DataFrame(st.session_state.selected_words)
 st.table(df)
+st.dataframe(df)
