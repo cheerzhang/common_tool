@@ -1,6 +1,10 @@
 import streamlit as st
 import random
 
+
+st.markdown("# Tarot ❄️")
+st.sidebar.markdown("# Tarot ❄️")
+
 def run_game():
     st.title("Number Guessing Game")
     st.write("I'm thinking of a number between 1 and 100. Can you guess it?")
