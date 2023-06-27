@@ -70,7 +70,7 @@ table = go.Mesh3d(
 )
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_floor, kitchen, tolit_1 room_roof_1, room_roof_2]
+data = room_walls + [room_floor, kitchen, tolit_1, room_roof_1, room_roof_2]
 
 # Create the 3D layout
 layout = go.Layout(
