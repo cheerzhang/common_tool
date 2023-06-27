@@ -19,8 +19,8 @@ room_walls = [
 
 # Create a room roof
 room_roof_1 = go.Mesh3d(
-    x=[0, room_length, room_length, 0, 0],
-    y=[0, 0, 0, 0, 0],
+    x=[0, 5, 5, 0, 0],
+    y=[0, 0, 5, 5, 0],
     z=[3, 3, 3, 3, 3],
     color='lightgray',
     opacity=0.7
