@@ -28,6 +28,10 @@ if st.button("Save"):
     selected_words.append(word_memo)
     st.session_state.selected_words = selected_words
 
+    # Reset the selected_word and memo variables
+    selected_word = ''
+    memo = ''
+
 # Display the selected words and memos
 st.write("Selected words:")
 for item in st.session_state.selected_words:
