@@ -33,7 +33,7 @@ data = room_walls + [room_roof]
 layout = go.Layout(
     scene=dict(
         xaxis=dict(visible=True),
-        yaxis=dict(visible=False),
+        yaxis=dict(visible=True),
         zaxis=dict(visible=False),
         aspectmode="manual",
         aspectratio=dict(x=room_length, y=room_width, z=room_height)
