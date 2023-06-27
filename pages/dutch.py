@@ -33,7 +33,4 @@ if st.button("Save"):
     memo = ''
 
 # Display the selected words and memos in a table
-st.write("Selected words:")
-arr = st.session_state.selected_words.keys()
-st.write(arr)
-st.dataframe(df_word)
+st.write("Selected words:",  st.session_state.selected_words)
