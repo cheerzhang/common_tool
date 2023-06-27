@@ -36,7 +36,7 @@ tolit_1 = go.Mesh3d(
 )
 
 # create a kitchen
-room_kitchen = go.Mesh3d(
+kitchen = go.Mesh3d(
     x=[0,    3.7,  3.7,   0,     0],
     y=[7.99, 7.99, 11.79, 11.79, 7.99],
     z=[0, 0, 0, 0, 0],
@@ -70,7 +70,7 @@ table = go.Mesh3d(
 )
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_floor, room_wall_1, room_roof_1, room_roof_2, room_kitchen]
+data = room_walls + [room_floor, kitchen, tolit_1 room_roof_1, room_roof_2]
 
 # Create the 3D layout
 layout = go.Layout(
