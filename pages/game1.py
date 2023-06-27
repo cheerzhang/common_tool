@@ -28,8 +28,8 @@ def play_game(player_move):
 
 
 # Main page content
-st.markdown("# Tarot ❄️")
-st.write("Welcome to the Tarot game!")
+st.markdown("# Game - Rock, Paper, Scissors ❄️")
+st.write("Welcome to the Rock, Paper, Scissors game!")
 
 # Main game logic
 def main():
