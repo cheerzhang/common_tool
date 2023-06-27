@@ -28,7 +28,7 @@ room_roof = go.Mesh3d(
 
 # Create a table
 table = go.Mesh3d(
-    x=[1, 2, 2, 1, 1],
+    x=[0, 2, 2, 0, 0],
     y=[1, 1, 2, 2, 1],
     z=[0, 0, 0, 0, 0.5],
     color='red',
