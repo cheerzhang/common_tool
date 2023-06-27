@@ -28,11 +28,11 @@ def run_game():
             break
 
 # Main page content
-st.markdown("# Game - Guss Number ❄️")
-st.write("Welcome to the Number Gussing game!")
+st.markdown("# Tarot ❄️")
+st.write("Welcome to the Tarot game!")
 
 # Sidebar
-st.sidebar.markdown("# Game - Guss Number ❄️")
+st.sidebar.markdown("# Tarot ❄️")
 
 # Add game section to main page
 st.header("Number Guessing Game")
