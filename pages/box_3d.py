@@ -28,8 +28,8 @@ room_floor = go.Mesh3d(
 
 # add 1 st tolit
 tolit_1 = go.Mesh3d(
-    x=[0, 0.9, 0.9,   0,    0],
-    y=[0, 0,   2.65,  2.65, 0],
+    x=[0,    0.9,    0.9,   0,    0],
+    y=[1.54, 1.54,   2.65,  2.65, 1.54],
     z=[0, 0, 0, 0, 0],
     color='blue',
     opacity=0.7
