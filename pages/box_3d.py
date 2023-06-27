@@ -58,4 +58,11 @@ fig.update_layout(
         yaxis=dict(visible=False),
         zaxis=dict(visible=False),
         aspectratio=dict(x=1, y=1, z=1),
-        camera_eye=dict(x=1.5, y=-1.
+        camera_eye=dict(x=1.5, y=-1.5, z=0.8),
+        annotations=[]
+    ),
+    scene_camera=dict(up=dict(x=0, y=0, z=1))
+)
+
+# Display the 3D room
+st.plotly_chart(fig)
