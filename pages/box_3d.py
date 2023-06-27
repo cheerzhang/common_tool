@@ -34,6 +34,23 @@ fig.add_trace(go.Mesh3d(
     opacity=0.7
 ))
 
+# Add table legs
+table_leg_height = table_height / 2
+table_leg_width = table_width / 10
+table_leg_length = table_length / 10
+table_leg_x = [table_x, table_x + table_length, table_x, table_x + table_length]
+table_leg_y = [table_y, table_y, table_y + table_height, table_y + table_height]
+table_leg_z = [table_z, table_z, table_z, table_z]
+
+for i in range(4):
+    fig.add_trace(go.Mesh3d(
+        x=[table_leg_x[i], table_leg_x[i], table_leg_x[i] + table_leg_width, table_leg_x[i] + table_leg_width, table_leg_x[i]],
+        y=[table_leg_y[i], table_leg_y[i] + table_leg_length, table_leg_y[i] + table_leg_length, table_leg_y[i], table_leg_y[i]],
+        z=[table_leg_z[i], table_leg_z[i], table_leg_z[i], table_leg_z[i], table_leg_z[i]],
+        color='black',
+        opacity=0.7
+    ))
+
 # Set figure layout
 fig.update_layout(
     scene=dict(
@@ -41,12 +58,4 @@ fig.update_layout(
         yaxis=dict(visible=False),
         zaxis=dict(visible=False),
         aspectratio=dict(x=1, y=1, z=1),
-        camera_eye=dict(x=1.5, y=-1.5, z=0.8),
-        annotations=[]
-    ),
-    scene_camera=dict(up=dict(x=0, y=0, z=1))
-)
-
-# Display the 3D room
-st.plotly_chart(fig)
-
+        camera_eye=dict(x=1.5, y=-1.
