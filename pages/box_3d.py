@@ -36,7 +36,7 @@ layout = go.Layout(
         yaxis=dict(visible=True),
         zaxis=dict(visible=True),
         camera=dict(
-            eye=dict(x=1.5, y=1.5, z=1.5)  # Set the camera position (adjust the values as needed)
+            eye=dict(x=2, y=2, z=2)  # Set the camera position (adjust the values as needed)
         ),
         # aspectmode="manual",
         # aspectratio=dict(x=room_length, y=room_width, z=room_height)
