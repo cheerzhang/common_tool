@@ -36,4 +36,7 @@ st.sidebar.markdown("# Tarot ❄️")
 
 # Add game section to main page
 st.header("Number Guessing Game")
-run_game()
+
+if __name__ == '__main__':
+    run_game()
+
