@@ -27,15 +27,11 @@ def play_game(player_move):
     st.write(result)
 
 
-# Main page content
-st.markdown("# Game - Rock, Paper, Scissors ❄️")
-st.write("Welcome to the Rock, Paper, Scissors game!")
-st.sidebar.markdown("# Rock, Paper, Scissors game ❄️")
-
 # Main game logic
 def main():
     st.title("Rock, Paper, Scissors")
     st.write("Make your move:")
+    st.sidebar.markdown("# Rock, Paper, Scissors game ❄️")
 
     # Let the player select their move
     player_move = st.radio("Select your move", moves)
