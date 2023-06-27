@@ -1,4 +1,4 @@
 matplotlib
-pyvista
+plotly
 pandas
 numpy
