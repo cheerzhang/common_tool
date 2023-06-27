@@ -36,6 +36,4 @@ if st.button("Save"):
 st.write("Selected words:")
 df = pd.DataFrame(st.session_state.selected_words)
 df_word = df.T
-df_word['first'] = df_word.index
-df_word.columns = ['First', 'Second']
 st.dataframe(df_word)
