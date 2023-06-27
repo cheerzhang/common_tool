@@ -12,25 +12,14 @@ words = article.split()
 # Display the article
 st.write(article)
 
-# Initialize selected words as an empty list
-selected_words = []
+# Select a word using a selectbox
+selected_word = st.selectbox("Select a word", words)
 
-# Loop through the words and add hover functionality
-for word in words:
-    st.markdown(
-        f'<span title="Click to save" style="cursor: pointer;" onclick="saveWord(\'{word}\')">{word}</span>',
-        unsafe_allow_html=True
-    )
+# Store the selected word in an array
+selected_words = st.session_state.get('selected_words', [])
+if selected_word not in selected_words:
+    selected_words.append(selected_word)
+    st.session_state.selected_words = selected_words
 
-# JavaScript function to save the clicked word
-save_word_script = """
-<script>
-function saveWord(word) {
-    // Send the word to the server or perform any other desired action
-    console.log("Saving word:", word);
-}
-</script>
-"""
-
-# Display the JavaScript code
-st.write(save_word_script, unsafe_allow_html=True)
+# Display the selected words
+st.write("Selected words:", selected_words)
