@@ -2,3 +2,4 @@ matplotlib
 plotly
 pandas
 numpy
+pythreejs
