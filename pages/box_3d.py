@@ -18,6 +18,22 @@ fig.add_trace(go.Mesh3d(
     opacity=0.7
 ))
 
+# Add a table in the room
+table_width = 2
+table_height = 0.8
+table_length = 4
+table_x = (room_length - table_length) / 2
+table_y = (room_height - table_height) / 2
+table_z = (room_width - table_width) / 2
+
+fig.add_trace(go.Mesh3d(
+    x=[table_x, table_x + table_length, table_x + table_length, table_x, table_x, table_x, table_x + table_length, table_x + table_length, table_x + table_length, table_x + table_length, table_x, table_x],
+    y=[table_y, table_y, table_y + table_height, table_y + table_height, table_y, table_y, table_y, table_y + table_height, table_y + table_height, table_y, table_y, table_y + table_height],
+    z=[table_z, table_z, table_z, table_z, table_z, table_z + table_width, table_z + table_width, table_z + table_width, table_z, table_z, table_z, table_z],
+    color='brown',
+    opacity=0.7
+))
+
 # Set figure layout
 fig.update_layout(
     scene=dict(
