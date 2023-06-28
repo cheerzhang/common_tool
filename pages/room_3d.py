@@ -55,7 +55,14 @@ toilet_wall_3 = go.Mesh3d(
    color='blue',
    opacity=0.7
 )
-toilet_ = [toilet, toilet_wall_1, toilet_wall_2, toilet_wall_3]
+toilet_wall_4 = go.Mesh3d(
+   x=[3, 4, 3.9, 3.1, 3],
+   y=[2, 2, 1.9, 1.9, 2],
+   z=[0, 0, 2,   2,   0],
+   color='blue',
+   opacity=0.7
+)
+toilet_ = [toilet, toilet_wall_1, toilet_wall_2, toilet_wall_3, toilet_wall_4]
 
 # ----------------------------  create a bed  ---------------------------------
 bed = go.Mesh3d(
