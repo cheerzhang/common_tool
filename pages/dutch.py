@@ -38,32 +38,3 @@ if st.button("Add"):
     data = pd.DataFrame({'dutch': [selected_dutch_words], 'english': [selected_english_words]})
     st.dataframe(data)
     st.data_editor(data)
-# Display the selected options
-st.write('Selected Options:')
-st.write('Option 1:', option1)
-st.write('Option 2:', option2)
-
-
-
-# Select a word using a selectbox
-selected_word = st.selectbox("Select a word", [''] + words)
-
-# Enter a memo for the selected word
-memo = st.text_input("Enter a memo")
-
-# Button to trigger saving the word-memo pair
-if st.button("Save"):
-    # Store the selected word and memo in a dictionary
-    word_memo = {selected_word: memo}
-
-    # Store the word-memo pairs in a list
-    selected_words = st.session_state.get('selected_words', [])
-    selected_words.append(word_memo)
-    st.session_state.selected_words = selected_words
-
-    # Reset the selected_word and memo variables
-    selected_word = ''
-    memo = ''
-
-# Display the selected words and memos in a table
-st.write("Selected words:",  st.session_state.selected_words)
