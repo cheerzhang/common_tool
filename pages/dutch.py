@@ -11,7 +11,7 @@ Mourinho also suspended in Italy after insulting referee; watch a total of six m
 article_3 = """
 穆里尼奥在意大利也因侮辱裁判而被禁赛； 总共观看六场比赛.
 """
-st.write(article)
+st.write(article_1)
 # --------------------------------- translate ---------------------------------------
 with st.expander("See translation"):
     st.write(article_2)
