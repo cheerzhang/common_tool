@@ -79,6 +79,13 @@ bed = go.Mesh3d(
    color='pink',
    opacity=0.7
 )
+bed_head = go.Mesh3d(
+   x=[0,   0.1,   0,   0.1],
+   y=[0,   0,     0,   0],
+   z=[0,   0.5,   1,   0],
+   color='pink',
+   opacity=0.7
+)
 bed_leg_1 = go.Mesh3d(
    x=[0, 2, 1.9, 0.1, 0],
    y=[0, 0, 0.1, 0.1, 0],
@@ -107,7 +114,7 @@ bed_leg_4 = go.Mesh3d(
    color='pink',
    opacity=0.7
 )
-bed_ = [bed, bed_leg_1, bed_leg_2, bed_leg_3, bed_leg_4]
+bed_ = [bed, bed_leg_1, bed_leg_2, bed_leg_3, bed_leg_4, bed_head]
 
 # --------------------------- Create a bookshelf -----------------------------
 shelf_1 = go.Mesh3d(
