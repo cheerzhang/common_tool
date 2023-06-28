@@ -1,16 +1,36 @@
 import streamlit as st
 import pandas as pd
 
-# Sample article
-article = """
-De milieucommissie van het Europees Parlement is het niet gelukt om een compromis te bereiken over de natuurherstelwet van Eurocommissaris Frans Timmermans. Dit betekent dat in het Europees Parlement alles weer open ligt. Over twee weken stemt het voltallig parlement over de wet.
+# ---------------------------------- article ---------------------------------------
+article_1 = """
+Mourinho ook in Italië geschorst na beledigen arbiter; in totaal zes duels toekijken.
 """
+article_2 = """
+Mourinho also suspended in Italy after insulting referee; watch a total of six matches.
+"""
+article_3 = """
+穆里尼奥在意大利也因侮辱裁判而被禁赛； 总共观看六场比赛.
+"""
+st.write(article)
+# --------------------------------- translate ---------------------------------------
+with st.expander("See translation"):
+    st.write(article_2)
+    st.write(article_3)
 
 # Convert the article into a list of words
-words = list(set(word.lower() for word in article.split()))
+words_1 = list(set(word.lower() for word in article_1.split()))
+words_2 = list(set(word.lower() for word in article_2.split()))
+words_3 = list(set(word.lower() for word in article_3.split()))
+with st.beta_container():
+    col1, col2, col3 = st.beta_columns(3)
+    with col1:
+        option1 = st.selectbox('Dutch', words_1)
+    with col2:
+        option2 = st.selectbox('English', words_2)
+    with col3:
+        option3 = st.selectbox('Chinese', words_3)
 
-# Display the article
-st.write(article)
+
 
 # Select a word using a selectbox
 selected_word = st.selectbox("Select a word", [''] + words)
