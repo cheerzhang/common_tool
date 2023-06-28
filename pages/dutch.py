@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
 
+
+def sentence_with_translate(dutch, english, chinese):
+    st.write(dutch)
+    with st.expander("See translation"):
+        st.write(english)
+        st.write(chinese)
+
+
 # ---------------------------------- article ---------------------------------------
 article_1 = """
 Tientallen mensen bij stille tocht doodgestoken Antoneta (36) in Den Haag
@@ -11,11 +19,7 @@ Dozens of people stabbed to death in a silent march Antoneta (36) in The Hague
 article_3 = """
 海牙安东内塔的静默游行中数十人被刺死(36)
 """
-st.write(article_1)
-# --------------------------------- translate ---------------------------------------
-with st.expander("See translation"):
-    st.write(article_2)
-    st.write(article_3)
+sentence_with_translate(article_1, article_2, article_3)
 
 
 
