@@ -19,17 +19,11 @@ with st.expander("See translation"):
 
 # Convert the article into a list of words
 words_1 = list(set(word.lower() for word in article_1.split()))
+option1 = st.selectbox('Dutch', [] + words_1)
 words_2 = list(set(word.lower() for word in article_2.split()))
+option2 = st.selectbox('English', words_2)
 words_3 = list(set(word.lower() for word in article_3.split()))
-with st.beta_container():
-    col1, col2, col3 = st.beta_columns(3)
-    with col1:
-        option1 = st.selectbox('Dutch', words_1)
-    with col2:
-        option2 = st.selectbox('English', words_2)
-    with col3:
-        option3 = st.selectbox('Chinese', words_3)
-
+option3 = st.selectbox('Chinese', words_3)
 # Display the selected options
 st.write('Selected Options:')
 st.write('Option 1:', option1)
