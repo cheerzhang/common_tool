@@ -35,6 +35,9 @@ if st.button("Add"):
         selected_dutch_words = selected_dutch_words + ' ' + item
     for item in option2:
         selected_english_words = selected_english_words + ' ' + item
-    data = pd.DataFrame({'dutch': [selected_dutch_words], 'english': [selected_english_words]})
-    st.dataframe(data)
-    st.data_editor(data)
+
+df_voc = pd.read_csv('../data/dutch.csv')
+data = pd.DataFrame({'dutch': [selected_dutch_words], 'english': [selected_english_words]})
+st.dataframe(df_voc)
+st.data_editor(df_voc)
+
