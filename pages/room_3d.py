@@ -29,7 +29,7 @@ room_floor = go.Mesh3d(
 # create a toilet
 toilet = go.Mesh3d(
    x=[0, 1, 1, 0, 0],
-   y=[0, 0, 1, 1, 0],
+   y=[0, 0, 2, 2, 0],
    z=[0, 0, 0, 0, 0],
    color='blue',
    opacity=0.7
