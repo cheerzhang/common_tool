@@ -40,7 +40,7 @@ if st.button("Add"):
     for item in option2:
         selected_english_words = selected_english_words + ' ' + item
         english_arr.append(selected_english_words)
-    data = pd.DataFrame({'dutch': dutch_arr, 'english': english_arr})
+data = pd.DataFrame({'dutch': dutch_arr, 'english': english_arr})
 st.dataframe(data)
 st.data_editor(data)
 
