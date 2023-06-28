@@ -23,8 +23,8 @@ option1 = st.selectbox('Dutch', [] + words_1)
 words_2 = list(set(word.lower() for word in article_2.split()))
 option2 = st.selectbox('English', words_2)
 if st.button("Add"):
-    selected_dutch_words = st.session_state.get('Dutch', [''])
-    selected_english_words = st.session_state.get('English', [''])
+    selected_dutch_words = st.session_state.get('Dutch', [])
+    selected_english_words = st.session_state.get('English', [])
 # Display the selected options
 st.write('Selected Options:')
 st.write('Option 1:', selected_dutch_words)
