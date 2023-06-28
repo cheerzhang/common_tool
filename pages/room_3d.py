@@ -109,15 +109,22 @@ bed_leg_4 = go.Mesh3d(
 )
 bed_ = [bed, bed_leg_1, bed_leg_2, bed_leg_3, bed_leg_4]
 
-# --------------------------- Create a wall -----------------------------
-r_wall = go.Mesh3d(
+# --------------------------- Create a bookshelf -----------------------------
+shelf_1 = go.Mesh3d(
    x=[2.5, 3, 3, 2.5, 2.5],
    y=[0,   0,  3,  3,   0],
    z=[0,   0,  0,  0,   0],
    color='lightyellow',
    opacity=0.7
 )
-walls_ = [r_wall]
+shelf_2 = go.Mesh3d(
+   x=[2.5, 3,   3,   2.5, 2.5],
+   y=[0,   0,   3,   3,   0],
+   z=[0.5, 0.5, 0.5, 0.5, 0.5],
+   color='lightyellow',
+   opacity=0.7
+)
+shelves_ = [shelf_1, shelf_2]
 
 # Combine room walls and roof into a data list
 data = room_walls + [room_floor] + bed_ + toilet_ + walls_
