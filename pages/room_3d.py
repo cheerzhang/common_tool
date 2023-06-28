@@ -51,7 +51,7 @@ bed_leg = go.Mesh3d(
 )
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_floor, toilet, bed]
+data = room_walls + [room_floor, toilet, bed, bed_leg]
 
 # Create the 3D layout
 layout = go.Layout(
