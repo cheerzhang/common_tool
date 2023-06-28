@@ -30,13 +30,21 @@ room_floor = go.Mesh3d(
 toilet = go.Mesh3d(
    x=[0, 1, 1, 0, 0],
    y=[0, 0, 2, 2, 0],
-   z=[0, 0, 1, 1, 0],
+   z=[0, 0, 0, 0, 0],
    color='blue',
+   opacity=0.7
+)
+# create a bed
+bed = go.Mesh3d(
+   x=[0,   2,   2,     0,   0],
+   y=[0,   0,   1.8,   1.8, 0],
+   z=[0.5, 0.5, 0.5,   0.5, 0.5],
+   color='pink',
    opacity=0.7
 )
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_floor, toilet]
+data = room_walls + [room_floor, toilet, bed]
 
 # Create the 3D layout
 layout = go.Layout(
