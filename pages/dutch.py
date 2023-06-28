@@ -28,16 +28,19 @@ option2 = st.multiselect(
     'English',
     [''] + words_2,
     [])
+
+dutch_arr = []
+english_arr = []
 if st.button("Add"):
     selected_dutch_words = ''
     selected_english_words = ''
     for item in option1:
         selected_dutch_words = selected_dutch_words + ' ' + item
+        dutch_arr.append(selected_dutch_words)
     for item in option2:
         selected_english_words = selected_english_words + ' ' + item
-
-df_voc = pd.read_csv('dutch.csv')
-data = pd.DataFrame({'dutch': [selected_dutch_words], 'english': [selected_english_words]})
-st.dataframe(df_voc)
-st.data_editor(df_voc)
+        english_arr.append(selected_english_words)
+    data = pd.DataFrame({'dutch': dutch_arr, 'english': english_arr})
+st.dataframe(data)
+st.data_editor(data)
 
