@@ -58,7 +58,7 @@ bed_leg_2 = go.Mesh3d(
 )
 bed_leg_3 = go.Mesh3d(
    x=[0,   0.1,   0.1, 0,   0],
-   y=[0,   0,     2,   2,   0],
+   y=[0,   0.1,   1,9, 2,   0],
    z=[0,   0.5,   0.5, 0, 0.5],
    color='pink',
    opacity=0.7
