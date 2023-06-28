@@ -133,28 +133,28 @@ bed_ = [bed, bed_leg_1, bed_leg_2, bed_leg_3, bed_leg_4, bed_head]
 # --------------------------- Create a bookshelf -----------------------------
 shelf_1 = go.Mesh3d(
    x=[2.5, 3, 3, 2.5, 2.5],
-   y=[0,   0,  3,  3,   0],
+   y=[0,   0,  2,  2,   0],
    z=[0,   0,  0,  0,   0],
    color='lightyellow',
    opacity=0.7
 )
 shelf_2 = go.Mesh3d(
    x=[2.5, 3,   3,   2.5, 2.5],
-   y=[0,   0,   3,   3,   0],
+   y=[0,   0,   2,   2,   0],
    z=[0.5, 0.5, 0.5, 0.5, 0.5],
    color='lightyellow',
    opacity=0.7
 )
 shelf_3 = go.Mesh3d(
    x=[2.5, 3,   3,   2.5, 2.5],
-   y=[0,   0,   3,   3,   0],
+   y=[0,   0,   2,   2,   0],
    z=[1,   1,   1,   1,   1],
    color='lightyellow',
    opacity=0.7
 )
 shelf_4 = go.Mesh3d(
    x=[2.5, 3,   3,   2.5, 2.5],
-   y=[0,   0,   3,   3,   0],
+   y=[0,   0,   2,   2,   0],
    z=[1.5, 1.5, 1.5, 1.5, 1.5],
    color='lightyellow',
    opacity=0.7
