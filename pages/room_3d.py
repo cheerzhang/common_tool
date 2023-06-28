@@ -127,7 +127,7 @@ shelf_2 = go.Mesh3d(
 shelves_ = [shelf_1, shelf_2]
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_floor] + bed_ + toilet_ + walls_
+data = room_walls + [room_floor] + bed_ + toilet_ + shelves_
 
 # Create the 3D layout
 layout = go.Layout(
