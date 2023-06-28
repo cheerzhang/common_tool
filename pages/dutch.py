@@ -22,13 +22,13 @@ words_1 = list(set(word.lower() for word in article_1.split()))
 option1 = st.selectbox('Dutch', [] + words_1)
 words_2 = list(set(word.lower() for word in article_2.split()))
 option2 = st.selectbox('English', words_2)
-words_3 = list(set(word.lower() for word in article_3.split()))
-option3 = st.selectbox('Chinese', words_3)
+if st.button("Add"):
+    selected_dutch_words = st.session_state.get('Dutch', [''])
+    selected_english_words = st.session_state.get('English', [''])
 # Display the selected options
 st.write('Selected Options:')
-st.write('Option 1:', option1)
-st.write('Option 2:', option2)
-st.write('Option 3:', option3)
+st.write('Option 1:', selected_dutch_words)
+st.write('Option 2:', selected_english_words)
 
 
 
