@@ -20,7 +20,7 @@ with st.expander("See translation"):
 
 
 
- ---------------------------------- article ---------------------------------------
+# ---------------------------------- article ---------------------------------------
 article_1 = """
 In Den Haag hebben tientallen mensen vanavond meegelopen in een stille tocht voor de 36-jarige Antoneta, die vorige week in een filiaal van Albert Heijn werd doodgestoken.
 """
