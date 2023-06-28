@@ -42,6 +42,13 @@ bed = go.Mesh3d(
    color='pink',
    opacity=0.7
 )
+bed_leg = go.Mesh3d(
+   x=[0, 0.1, 0.1, 0,   0],
+   y=[0, 0,   0.1, 0.1, 0],
+   z=[0, 0,   0.5, 0.5, 0.5],
+   color='pink',
+   opacity=0.7
+)
 
 # Combine room walls and roof into a data list
 data = room_walls + [room_floor, toilet, bed]
