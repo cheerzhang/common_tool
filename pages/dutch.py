@@ -17,30 +17,23 @@ with st.expander("See translation"):
     st.write(article_2)
     st.write(article_3)
 
-# Convert the article into a list of words
-words_1 = list(set(word.lower() for word in article_1.split()))
-option1 = st.multiselect(
-    'Dutch',
-    [''] + words_1,
-    [])
-words_2 = list(set(word.lower() for word in article_2.split()))
-option2 = st.multiselect(
-    'English',
-    [''] + words_2,
-    [])
 
-dutch_arr = []
-english_arr = []
-if st.button("Add"):
-    selected_dutch_words = ''
-    selected_english_words = ''
-    for item in option1:
-        selected_dutch_words = selected_dutch_words + ' ' + item
-        dutch_arr.append(selected_dutch_words)
-    for item in option2:
-        selected_english_words = selected_english_words + ' ' + item
-        english_arr.append(selected_english_words)
-data = pd.DataFrame({'dutch': dutch_arr, 'english': english_arr})
-st.dataframe(data)
-st.data_editor(data)
+
+
+ ---------------------------------- article ---------------------------------------
+article_1 = """
+In Den Haag hebben tientallen mensen vanavond meegelopen in een stille tocht voor de 36-jarige Antoneta, die vorige week in een filiaal van Albert Heijn werd doodgestoken.
+"""
+article_2 = """
+In The Hague, dozens of people joined a silent march tonight for 36-year-old Antoneta, who was stabbed to death in a branch of Albert Heijn last week.
+"""
+article_3 = """
+在海牙，今晚有数十人参加了为 36 岁的安东内塔举行的无声游行，他上周在阿尔伯特·海因 (Albert Heijn) 的一家分店被刺死。
+"""
+st.write(article_1)
+# --------------------------------- translate ---------------------------------------
+with st.expander("See translation"):
+    st.write(article_2)
+    st.write(article_3)
+
 
