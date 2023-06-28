@@ -35,7 +35,7 @@ if st.button("Add"):
         selected_dutch_words = selected_dutch_words + ' ' + item
     for item in option2:
         selected_english_words = selected_english_words + ' ' + item
-    data = {'dutch': [selected_dutch_words], 'english': [selected_english_words]}
+    data = pd.dataframe({'dutch': [selected_dutch_words], 'english': [selected_english_words]})
     st.data_editor(data)
 # Display the selected options
 st.write('Selected Options:')
