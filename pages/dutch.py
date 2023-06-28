@@ -29,8 +29,14 @@ option2 = st.multiselect(
     [''] + words_2,
     [])
 if st.button("Add"):
-    selected_dutch_words = st.session_state.get('Dutch', [])
-    selected_english_words = st.session_state.get('English', [])
+    selected_dutch_words = ''
+    selected_english_words = ''
+    for item in option1:
+        selected_dutch_words = selected_dutch_words + ' ' + item
+    for item in option2:
+        selected_english_words = selected_english_words + ' ' + item
+    data = {'dutch': selected_dutch_words, 'english': selected_english_words}
+    st.data_editor(data)
 # Display the selected options
 st.write('Selected Options:')
 st.write('Option 1:', option1)
