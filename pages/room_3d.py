@@ -37,35 +37,35 @@ toilet = go.Mesh3d(
 toilet_wall_1 = go.Mesh3d(
    x=[3, 3.1, 3.1, 3, 3],
    y=[0, 0.1, 1.9, 2, 0],
-   z=[0, 2,   2,   0, 0],
+   z=[0, 2.7, 2.7, 0, 0],
    color='blue',
    opacity=0.7
 )
 toilet_wall_2 = go.Mesh3d(
    x=[3.9, 4, 4, 3.9, 3.9],
    y=[0.1, 0, 2, 1.9, 0.1],
-   z=[2,   0, 0,   2, 2],
+   z=[2.7, 0, 0, 2.7, 2.7],
    color='blue',
    opacity=0.7
 )
 toilet_wall_3 = go.Mesh3d(
    x=[3, 4, 3.9, 3.1, 3],
    y=[0, 0, 0.1, 0.1, 0],
-   z=[0, 0, 2,   2,   0],
+   z=[0, 0, 2.7, 2.7, 0],
    color='blue',
    opacity=0.7
 )
 toilet_wall_4 = go.Mesh3d(
    x=[3, 4, 3.9, 3.1, 3],
    y=[2, 2, 1.9, 1.9, 2],
-   z=[0, 0, 2,   2,   0],
+   z=[0, 0, 2.7, 2.7, 0],
    color='blue',
    opacity=0.7
 )
 toilet_floor = go.Mesh3d(
    x=[3.1, 3.9, 3.9, 3.1, 3.1],
    y=[0.1, 0.1, 1.9, 1.9, 0.1],
-   z=[2,   2,   2,   2,   2],
+   z=[2.7, 2.7, 2.7, 2.7, 2.7],
    color='blue',
    opacity=0.7
 )
@@ -124,7 +124,14 @@ shelf_2 = go.Mesh3d(
    color='lightyellow',
    opacity=0.7
 )
-shelves_ = [shelf_1, shelf_2]
+shelf_3 = go.Mesh3d(
+   x=[2.5, 3,   3,   2.5, 2.5],
+   y=[0,   0,   3,   3,   0],
+   z=[1,   1,   1,   1,   1],
+   color='lightyellow',
+   opacity=0.7
+)
+shelves_ = [shelf_1, shelf_2, shelf_3]
 
 # Combine room walls and roof into a data list
 data = room_walls + [room_floor] + bed_ + toilet_ + shelves_
