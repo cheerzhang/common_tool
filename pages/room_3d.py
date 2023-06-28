@@ -41,7 +41,7 @@ toilet_wall_1 = go.Mesh3d(
    color='blue',
    opacity=0.7
 )
-toilet_ = toilet + toilet_wall_1
+toilet_ = [toilet + toilet_wall_1]
 
 # ----------------------------  create a bed  ---------------------------------
 bed = go.Mesh3d(
