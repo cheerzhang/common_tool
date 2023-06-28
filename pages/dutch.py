@@ -3,13 +3,13 @@ import pandas as pd
 
 # ---------------------------------- article ---------------------------------------
 article_1 = """
-Mourinho ook in Italië geschorst na beledigen arbiter; in totaal zes duels toekijken.
+Tientallen mensen bij stille tocht doodgestoken Antoneta (36) in Den Haag
 """
 article_2 = """
-Mourinho also suspended in Italy after insulting referee; watch a total of six matches.
+Dozens of people stabbed to death in a silent march Antoneta (36) in The Hague
 """
 article_3 = """
-穆里尼奥在意大利也因侮辱裁判而被禁赛； 总共观看六场比赛.
+海牙安东内塔的静默游行中数十人被刺死(36)
 """
 st.write(article_1)
 # --------------------------------- translate ---------------------------------------
@@ -29,6 +29,12 @@ with st.beta_container():
         option2 = st.selectbox('English', words_2)
     with col3:
         option3 = st.selectbox('Chinese', words_3)
+
+# Display the selected options
+st.write('Selected Options:')
+st.write('Option 1:', option1)
+st.write('Option 2:', option2)
+st.write('Option 3:', option3)
 
 
 
