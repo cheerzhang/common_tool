@@ -4,40 +4,29 @@ import plotly.graph_objects as go
 # Create room walls
 room_walls = [
     go.Mesh3d(
-        x=[0, 11.79, 11.79,   0,           0],
-        y=[0, 0,    11.79,  11.79, 0],
+        x=[0, 5, 5, 0, 0],
+        y=[0, 0, 5, 5, 0],
         z=[0, 0, 0, 0, 0],
         color='lightgray',
-        opacity=0.3
+        opacity=0.1
     )
 ]
 
 # ------------------------------- Create room floor -----------------------------
 room_floor = go.Mesh3d(
-   x=[0, 3.54, 3,54,   0,           0],
-   y=[0, 0,    11.79,  11.79, 0],
+   x=[0, 2.3, 2.3, 0, 0],
+   y=[0, 0, 5, 5, 0],
    z=[0, 0, 0, 0, 0],
    color='lightgray',
    opacity=0.7
 )
 room_wall = [
-    go.Mesh3d(x=[0, 0.01, 0.01,0,0],y=[0, 0,11.79,11.79, 0],z=[0,2.7,2.7,0, 0], color='lightgray', opacity=0.7),
-    go.Mesh3d(x=[3.53, 3.54, 3.54, 3.53, 3.53], y=[0, 0, 11.79,11.79, 0], z=[2.7, 0,  0, 2.7, 2.7], color='lightgray', opacity=0.7)
-]
-kitchen_wall = [
-    go.Mesh3d(x=[0,0.5,0.5,0,0],y=[7.98,7.98,7.99,7.99,7.98],z=[0,0,2.7,2.7,0], color='lightgray', opacity=0.7),
-]
-kitchen = [
-    go.Mesh3d(x=[0,1,1,0,0],y=[8, 8, 8.5, 8.5, 8],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
-    go.Mesh3d(x=[0,0.7,0.7,0,0],y=[8.5, 8.5, 11.78, 11.78, 8.5],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
-]
-sofa = [
-    go.Mesh3d(x=[0,1.8,1.8,0,0],y=[5.98, 5.98, 7.98, 7.98, 5.98],z=[0.5,0.5,0.5,0.5,0.5], color='yellow', opacity=0.7),
-    go.Mesh3d(x=[0,0.1,0.1,0,0],y=[5.98, 5.98, 7.98, 7.98, 5.98],z=[0,0.5,0.5,0,0], color='yellow', opacity=0.7),
-    go.Mesh3d(x=[1.7,1.8,1.8,1.7,1.7],y=[5.98, 5.98, 7.98, 7.98, 5.98],z=[0.5,0,0,0.5,0.5], color='yellow', opacity=0.7),
+    go.Mesh3d(x=[0, 0.01, 0.01,0,0],y=[0,0,5,5,0],z=[0,2,2,0,0], color='lightgray', opacity=0.7), # left
+    go.Mesh3d(x=[2.29,2.3,2.3,2.29,2.29], y=[0,0,5,5,0], z=[2,0,0,2,2], color='lightgray', opacity=0.7), # right
+    go.Mesh3d(x=[0,2.3,2.3,0,0], y=[0,0,0.01,0.01,0], z=[0,0,2,2,0], color='lightgray', opacity=0.7), # back
 ]
 
-floor_1 = [room_floor] + room_wall + kitchen_wall + kitchen + sofa
+floor_1 = [room_floor] + room_wall
 # --------------------------- stair ---------------------------------
 
 
