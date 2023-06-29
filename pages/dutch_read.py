@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from data.vocabulary import arr
 
 token = st.text_input('Type in translate API token:', '')
 st.write('The current token used is:', token)
