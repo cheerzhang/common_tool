@@ -9,8 +9,8 @@ room_height = 3.7
 # Create room walls
 room_walls = [
     go.Mesh3d(
-        x=[0, room_width, room_width,   0,           0],
-        y=[0, 0,          room_length,  room_length, 0],
+        x=[0, 3.54, 3,54,   0,           0],
+        y=[0, 0,    11.79,  11.79, 0],
         z=[0, 0, 0, 0, 0],
         color='lightgray',
         opacity=0.7
