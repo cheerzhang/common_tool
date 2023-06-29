@@ -34,10 +34,24 @@ toelit_1 = go.Mesh3d(
     color='lightblue',
     opacity=0.7
 )
-toelit_1_wall = go.Mesh3d(
+toelit_1_wall_1 = go.Mesh3d(
+    x=[0,    0.9,    0.9,   0,    0],
+    y=[1.54, 1.54,   1.64,  1.64, 1.54],
+    z=[0.5, 0.5, 0.5, 0.5, 0.5],
+    color='lightblue',
+    opacity=0.7
+)
+toelit_1_wall_2 = go.Mesh3d(
     x=[0,    0.9,    0.9,   0,    0],
     y=[1.54, 1.54,   1.64,  1.64, 1.54],
     z=[1, 1, 1, 1, 1],
+    color='lightblue',
+    opacity=0.7
+)
+toelit_1_wall_3 = go.Mesh3d(
+    x=[0,    0.9,    0.9,   0,    0],
+    y=[1.54, 1.54,   1.64,  1.64, 1.54],
+    z=[1.2, 1.2, 1.2, 1.2, 1.2],
     color='lightblue',
     opacity=0.7
 )
@@ -51,7 +65,7 @@ kitchen = go.Mesh3d(
     opacity=0.7
 )
 
-room_1st_floor = [room_floor_1, toelit_1, toelit_1_wall, kitchen]
+room_1st_floor = [room_floor_1, toelit_1, toelit_1_wall_1, toelit_1_wall_2, toelit_1_wall_3, kitchen]
 
 # ------------------------ Create a room 2nd floor -------------------------------
 room_floor_2 = go.Mesh3d(
