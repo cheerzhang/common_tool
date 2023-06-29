@@ -3,7 +3,7 @@ import requests
 
 
 token = st.text_input('Type in translate API token', '')
-st.write('The current movie title is', title)
+st.write('The current movie title is', token)
 
 url = "https://google-translate1.p.rapidapi.com/language/translate/v2/detect"
 
