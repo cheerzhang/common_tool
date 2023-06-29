@@ -26,6 +26,10 @@ room_wall = [
     go.Mesh3d(x=[0,2.3,2.3,0,0], y=[0,0,0.01,0.01,0], z=[0,0,2,2,0], color='lightgray', opacity=0.7), # back
     go.Mesh3d(x=[0,2.3,2.3,0,0], y=[4.99,4.99,5,5,4.99], z=[2,2,0,0,2], color='lightgray', opacity=0.7), # front
 ]
+bed = [
+    go.Mesh3d(x=[0,2.3,2.3,0,0],y=[0,0,1.5,1.5,0],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
+    go.Mesh3d(x=[0,2.3,2.3,0,0],y=[1.5,1.5,1.51,1.51,1.5],z=[0.5,0.5,0,0,0.5], color='lightpink', opacity=0.7),
+]
 
 floor_1 = [room_floor] + room_wall
 # --------------------------- stair ---------------------------------
@@ -33,7 +37,7 @@ floor_1 = [room_floor] + room_wall
 
 
 # Combine room walls and roof into a data list
-data = room_walls + floor_1
+data = room_walls + floor_1 + bed
 
 # Create the 3D layout
 layout = go.Layout(
