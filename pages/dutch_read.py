@@ -45,6 +45,4 @@ Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe v
 """
 
 st.markdown(article)
-st.button('Woningcorporatie')
-st.button('Woningcorporatie')
-st.button('Woningcorporatie')
+words = article.
