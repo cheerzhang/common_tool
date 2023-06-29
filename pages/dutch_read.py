@@ -48,10 +48,8 @@ for item in options:
 	word_ = word_ + " " + item
 
 if st.button('Translate this word'):
-	if token != "" and options != "":
-		# word_meaning = get_translation(token, word_)
-		word_meaning = 'translated'
-		st.write(f'words:{word_} means {word_meaning}')
+	word_meaning = 'translated'
+	st.write(f'words:{word_} means {word_meaning}')
 
 data = {word_: word_meaning}
 st.write(data)
