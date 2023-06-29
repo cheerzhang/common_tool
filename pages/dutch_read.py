@@ -5,7 +5,7 @@ import requests
 def get_translation(token, word):
 	url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
 	payload = {
-		"q": word,
+		"q": "woningen",
 		"target": "zh-cn",
 		"source": "nl"
 	}
