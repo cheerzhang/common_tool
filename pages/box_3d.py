@@ -18,7 +18,7 @@ room_walls = [
 ]
 
 # ------------------  Create 1st floor room ----------------------------
-room_floor = go.Mesh3d(
+room_floor_1 = go.Mesh3d(
     x=[0, room_width, room_width,   0,           0],
     y=[0, 0,          room_length,  room_length, 0],
     z=[0, 0, 0, 0, 0],
@@ -44,13 +44,21 @@ kitchen = go.Mesh3d(
     opacity=0.7
 )
 
-room_1st_floor = [room_floor, toelit_1, kitchen]
+room_1st_floor = [room_floor_1, toelit_1, kitchen]
 
 # ------------------------ Create a room 2nd floor -------------------------------
+room_floor_2 = go.Mesh3d(
+    x=[0, room_width, room_width,   0,           0],
+    y=[0, 0,          8.01,         8.01,        0],
+    z=[room_height, room_height, room_height, room_height, room_height],
+    color='lightgray',
+    opacity=0.7
+)
+room_2nd_floor = [room_floor_2]
 
 
 # Combine room walls and roof into a data list
-data = room_walls + room_1st_floor
+data = room_walls + room_1st_floor + room_2nd_floor
 
 # Create the 3D layout
 layout = go.Layout(
