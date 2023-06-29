@@ -31,8 +31,13 @@ kitchen = [
     go.Mesh3d(x=[0,1,1,0,0],y=[8, 8, 8.5, 8.5, 8],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
     go.Mesh3d(x=[0,0.7,0.7,0,0],y=[8.5, 8.5, 11.78, 11.78, 8.5],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
 ]
+sofa = [
+    go.Mesh3d(x=[0,1.8,1.8,0,0],y=[5.98, 5.98, 7.98, 7.98, 5.98],z=[0.5,0.5,0.5,0.5,0.5], color='yellow', opacity=0.7),
+    go.Mesh3d(x=[0,0.1,0.1,0,0],y=[5.98, 5.98, 7.98, 7.98, 5.98],z=[0,0.5,0.5,0,0], color='yellow', opacity=0.7),
+    go.Mesh3d(x=[1.7,1.8,1.8,1.7,1.7],y=[5.98, 5.98, 7.98, 7.98, 5.98],z=[0.5,0,0,0.5,0.5], color='yellow', opacity=0.7),
+]
 
-floor_1 = [room_floor] + room_wall + kitchen_wall + kitchen
+floor_1 = [room_floor] + room_wall + kitchen_wall + kitchen + sofa
 # --------------------------- stair ---------------------------------
 
 
