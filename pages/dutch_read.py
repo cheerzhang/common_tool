@@ -52,12 +52,12 @@ words_list = []
 for i in words:
 	if i not in except_arr:
 		words_list.append(i)
-'''		
+		
 options = st.multiselect(
     'Chose words to translate',
     words_list,
     [''])
-
+'''
 if token != "" and options != "":
 	word = options
 	word_meaning = get_translation(token, word)
