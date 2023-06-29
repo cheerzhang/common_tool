@@ -25,13 +25,10 @@ room_floor = go.Mesh3d(
    color='lightgray',
    opacity=0.7
 )
-room_wall = go.Mesh3d(
-   x=[0, 0.01, 0.01,   0,           0],
-   y=[0, 0,    11.79,  11.79, 0],
-   z=[0, 2.7,  2.7,    0, 0],
-   color='lightgray',
-   opacity=0.7
-)
+room_wall = [
+    go.Mesh3d(x=[0, 0.01, 0.01,0,0],y=[0, 0,11.79,11.79, 0],z=[0,2.7,2.7,0, 0], color='lightgray', opacity=0.7),
+    go.Mesh3d(x=[3.53, 3.54, 3.54, 3.53, 3.53], y=[0, 0, 11.79,11.79, 0], z=[2.7, 0,  0, 2.7, 2.7], color='lightgray', opacity=0.7)
+]
 # --------------------------- stair ---------------------------------
 
 
@@ -157,7 +154,7 @@ shelf_4 = go.Mesh3d(
 shelves_ = [shelf_1, shelf_2, shelf_3, shelf_4]
 
 # Combine room walls and roof into a data list
-data = room_walls + [room_floor, room_wall]
+data = room_walls + [room_floor] + room_wall
 
 # Create the 3D layout
 layout = go.Layout(
