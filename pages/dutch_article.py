@@ -2,8 +2,8 @@ import streamlit as st
 import requests
 
 
-token = st.text_input('Type in translate API token', '')
-st.write('The current movie title is', token)
+token = st.text_input('Type in translate API token:', '')
+st.write('The current token used is:', token)
 
 url = "https://google-translate1.p.rapidapi.com/language/translate/v2/detect"
 
@@ -17,4 +17,4 @@ headers = {
 
 response = requests.post(url, data=payload, headers=headers)
 
-print(response.json())
+st.write(response.json())
