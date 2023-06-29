@@ -44,9 +44,10 @@ for i in words:
 options = st.multiselect('Chose words to translate', words_list, [])
 
 word_meaning = ''
-if token != "" and options != "":
-	word_meaning = get_translation(token, options)
-	st.write(f'words:{options} means {word_meaning}')
+if st.button('Translate this word'):
+	if token != "" and options != "":
+		word_meaning = get_translation(token, options)
+		st.write(f'words:{options} means {word_meaning}')
 
 if st.button('Save this word'):
 	if word_meaning != '':
