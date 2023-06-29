@@ -1,9 +1,17 @@
 import streamlit as st
+from annotated_text import annotated_text
 
-highlighted_text = "Hello, **world**!"
-
-st.markdown(f'<span style="background-color: yellow;">{highlighted_text}</span>', unsafe_allow_html=True)
-
-highlighted_text = "Hello, <mark>world</mark>!"
-
-st.markdown(highlighted_text, unsafe_allow_html=True)
+annotated_text(
+    "This ",
+    ("is", "verb"),
+    " some ",
+    ("annotated", "adj"),
+    ("text", "noun"),
+    " for those of ",
+    ("you", "pronoun"),
+    " who ",
+    ("like", "verb"),
+    " this sort of ",
+    ("thing", "noun"),
+    "."
+)
