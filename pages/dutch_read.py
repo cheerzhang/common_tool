@@ -56,5 +56,5 @@ if st.button('Translate this word'):
 data = {word_: word_meaning}
 st.write(data)
 if st.button('Save this word'):
-	st.write(f'Ok, no problem, save {word} with {word_meaning}')
+	st.write(f'Ok, no problem, save {word_} with {word_meaning}')
 
