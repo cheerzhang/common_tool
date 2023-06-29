@@ -36,12 +36,10 @@ toelit_1 = go.Mesh3d(
 )
 toelit_1_wall_1_config_x = [0,    0.9,    0.9,   0,    0]
 toelit_1_wall_1_config_y = [1.54, 1.54,   1.64,  1.64, 1.54]
-toelit_1_wall_1 = go.Mesh3d(x=toelit_1_wall_1_config_x, y=toelit_1_wall_1_config_y, z=[0.1, 0.1, 0.1, 0.1, 0.1], color='lightblue', opacity=0.7)
-toelit_1_wall_2 = go.Mesh3d(x=toelit_1_wall_1_config_x, y=toelit_1_wall_1_config_y, z=[0.2, 0.2, 0.2, 0.2, 0.2], color='lightblue', opacity=0.7)
-toelit_1_wall_3 = go.Mesh3d(x=toelit_1_wall_1_config_x, y=toelit_1_wall_1_config_y, z=[0.3, 0.3, 0.3, 0.3, 0.3], color='lightblue', opacity=0.7)
-toelit_1_wall_4 = go.Mesh3d(x=toelit_1_wall_1_config_x, y=toelit_1_wall_1_config_y, z=[0.4, 0.4, 0.4, 0.4, 0.4], color='lightblue', opacity=0.7)
-toelit_1_wall_5 = go.Mesh3d(x=toelit_1_wall_1_config_x, y=toelit_1_wall_1_config_y, z=[0.5, 0.5, 0.5, 0.5, 0.5], color='lightblue', opacity=0.7)
-toelit_1_wall = [toelit_1_wall_1, toelit_1_wall_2, toelit_1_wall_3, toelit_1_wall_4, toelit_1_wall_5]
+toelit_1_wall = []
+for item in range(0, 2.7, 0.1):
+    toelit_1_wall.append(go.Mesh3d(x=toelit_1_wall_1_config_x, y=toelit_1_wall_1_config_y, z=[item, item, item, item, item], color='lightblue', opacity=0.7))
+
 
 # create a kitchen
 kitchen = go.Mesh3d(
