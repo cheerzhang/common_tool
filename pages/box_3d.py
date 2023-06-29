@@ -8,7 +8,7 @@ room_walls = [
         y=[0, 0,    11.79,  11.79, 0],
         z=[0, 0, 0, 0, 0],
         color='lightgray',
-        opacity=0.7
+        opacity=0.3
     )
 ]
 
