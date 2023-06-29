@@ -51,13 +51,13 @@ except_arr = arr_stop_word + arr_known_word
 words_list = []
 for i in words:
 	if i not in except_arr:
-		words_list.append(i)
+		words_list.append(i.lower().strip('.'))
 
 st.write(words_list)
 options = st.multiselect(
     'Chose words to translate',
-    words_list,
-    [''])
+    ['a', 'b'],
+    [])
 '''
 if token != "" and options != "":
 	word = options
