@@ -43,7 +43,7 @@ for i in words:
 
 options = st.multiselect('Chose words to translate', words_list, [])
 
-word_meaning = ''
+
 if st.button('Translate this word'):
 	if token != "" and options != "":
 		word_meaning = get_translation(token, options)
