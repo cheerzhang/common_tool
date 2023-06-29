@@ -32,6 +32,11 @@ room_wall = [
 kitchen_wall = [
     go.Mesh3d(x=[0,0.5,0.5,0,0],y=[7.98,7.98,7.99,7.99,7.98],z=[0,0,2.7,2.7,0], color='lightgray', opacity=0.7),
 ]
+kitchen = [
+    go.Mesh3d(x=[0,1,1,0,0],y=[8, 8, 8.5, 8.5, 8],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
+]
+
+floor_1 = [room_floor] + room_wall + kitchen_wall + kitchen
 # --------------------------- stair ---------------------------------
 
 
