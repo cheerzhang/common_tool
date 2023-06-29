@@ -21,11 +21,10 @@ def get_translation(token, word):
 	return new_word
 
 token = st.text_input('Type in translate API token:', '')
+word = "woningen"
 st.write('The current token used is:', token)
 
 
-
 if token != "":
-	word = "woningen"
 	word_meaning = get_translation(token, word)
 	st.write(word_meaning)
