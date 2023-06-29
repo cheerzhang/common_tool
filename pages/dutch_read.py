@@ -52,7 +52,8 @@ words_list = []
 for i in words:
 	if i not in except_arr:
 		words_list.append(i)
-		
+
+st.write(words_list)
 options = st.multiselect(
     'Chose words to translate',
     words_list,
