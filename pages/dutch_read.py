@@ -26,8 +26,9 @@ def highlight_and_translate_text(text):
 	for word in words:
 		if st.button(word):
 			# translation = get_translation(word)
-	    		translation = 'translation'
-            		st.write(f"**{word}** - {translation}")
+			translation = 'translation'
+			st.write(f"**{word}** - {translation}")
+
 
 '''
 if token != "":
