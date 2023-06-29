@@ -47,12 +47,15 @@ word_meaning = ''
 for item in options:
 	word_ = word_ + " " + item
 
+word_meaning = ''
+a = word_meaning
 if st.button('Translate this word'):
 	word_meaning = 'translated'
 	st.write(f'words:{word_} means {word_meaning}')
 
+a = word_meaning
 data = {word_: word_meaning}
-st.write(data)
+st.write(a)
 if st.button('Save this word'):
 	st.write(f'Ok, no problem, save {word_} with {word_meaning}')
 
