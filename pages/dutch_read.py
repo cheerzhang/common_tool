@@ -45,4 +45,5 @@ Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe v
 """
 
 st.markdown(article)
-words = article.
+words = list(set(text.split()))
+st.write(words)
