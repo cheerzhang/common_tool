@@ -7,15 +7,18 @@ fig = go.Figure()
 # Define the vertices of the triangle
 vertices = [[0, 0, 0], [1, 0, 0], [0.5, 0.5, 1]]
 
-# Create the triangular roof shape
-for i, vertex in enumerate(vertices):
-    fig.add_trace(go.Scatter3d(
-        x=[vertex[0]], y=[vertex[1]], z=[vertex[2]],
-        mode='text',
-        text=f'Vertex {i+1}',
-        textposition='top center',
-        textfont=dict(size=12, color='black')
-    ))
+# Create the triangular roof shape with text labels
+fig.add_trace(go.Mesh3d(
+    x=[v[0] for v in vertices],
+    y=[v[1] for v in vertices],
+    z=[v[2] for v in vertices],
+    color='lightblue',
+    opacity=0.7,
+    text=['Vertex 1', 'Vertex 2', 'Vertex 3'],
+    hoverinfo='text',
+    textposition='top center',
+    textfont=dict(size=12, color='black')
+))
 
 # Set layout
 fig.update_layout(
