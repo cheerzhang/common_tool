@@ -73,7 +73,7 @@ kitchen = go.Mesh3d(
     opacity=0.7
 )
 
-room_1st_floor = [room_floor_1, toelit_1, kitchen, sofa_1] + toelit_real_wall
+room_1st_floor = [room_floor_1, toelit_1, kitchen, sofa_1] + [toelit_real_wall]
 
 # ------------------------ Create a room 2nd floor -------------------------------
 room_floor_2 = go.Mesh3d(
