@@ -1,3 +1,41 @@
-arr = [
-  'op', 'de', 'en'
+arr_stop_word = [
+  'op', 'de', 'en', 'zoals',
 ]
+arr_known_word = [
+  'organisatie', 'appartementen', 'woning', 'woningcorporatie', 'oplopen', 'heel', 'omkopen',
+]
+
+16:"vaker"
+17:"krappe"
+18:"euro."
+19:"gaat"
+20:"volgens"
+21:"tot"
+22:"met"
+23:"te"
+24:"bemachtigen."
+25:"andere"
+26:"verhuurmarkt"
+27:"die"
+28:"5000"
+29:"geld"
+30:"leidt"
+31:"contact"
+32:"het"
+33:"zo"
+34:"kandidaat-huurders"
+35:"omkoping."
+36:"woningen"
+37:"krijgen"
+38:"De"
+39:"voorrang"
+40:"willen"
+41:"verbreekt"
+42:"verhuurt"
+43:"Nederland."
+44:"ongewenst"
+45:"potentiële"
+46:"een"
+47:"Het"
+48:"om"
+49:"in"
