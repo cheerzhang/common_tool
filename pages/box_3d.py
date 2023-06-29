@@ -51,6 +51,10 @@ toelit_1_wall_2_config_x = [0,    0.1,    0.1,   0,    0]
 toelit_1_wall_2_config_y = [1.54, 1.54,   2.65,  2.65, 1.54]
 for item in range(0, 27, 1):
     toelit_1_wall.append(go.Mesh3d(x=toelit_1_wall_2_config_x, y=toelit_1_wall_2_config_y, z=[item*0.1,item*0.1,item*0.1,item*0.1,item*0.1], color='lightblue', opacity=0.7))
+toelit_1_wall_3_config_x = [0,    0.9,    0.9,   0,    0]
+toelit_1_wall_3_config_y = [2.65, 2.65,   2.75,  2.75, 2.65]
+for item in range(0, 27, 1):
+    toelit_1_wall.append(go.Mesh3d(x=toelit_1_wall_3_config_x, y=toelit_1_wall_3_config_y, z=[item*0.1,item*0.1,item*0.1,item*0.1,item*0.1], color='lightblue', opacity=0.7))
 
 
 # create a kitchen
@@ -92,7 +96,7 @@ layout = go.Layout(
         yaxis=dict(visible=True),
         zaxis=dict(visible=True),
         camera=dict(
-            eye=dict(x=0.5, y=0.5, z=1)  # Set the camera position (adjust the values as needed)
+            eye=dict(x=1, y=1, z=1)  # Set the camera position (adjust the values as needed)
         ),
         # aspectmode="manual",
         # aspectratio=dict(x=room_length, y=room_width, z=room_height)
