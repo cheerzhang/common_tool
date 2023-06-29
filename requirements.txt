@@ -2,4 +2,4 @@ matplotlib
 plotly
 pandas
 numpy
-pythreejs
+st-annotated-text
