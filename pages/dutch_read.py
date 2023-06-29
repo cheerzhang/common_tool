@@ -52,7 +52,7 @@ words_list = []
 for i in words:
 	if i not in except_arr:
 		words_list.append(i)
-		
+'''		
 options = st.multiselect(
     'Chose words to translate',
     words_list,
@@ -65,3 +65,4 @@ if token != "" and options != "":
 	st.write(words_list)
 	if st.button('Save this word'):
 		st.write(f'Ok, no problem, save {word} with {word_meaning}')
+'''
