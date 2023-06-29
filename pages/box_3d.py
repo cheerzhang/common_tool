@@ -25,6 +25,14 @@ room_floor_1 = go.Mesh3d(
     color='lightgray',
     opacity=0.7
 )
+# add 1 st sofa
+sofa_1 = go.Mesh3d(
+    x=[0,    1.8,    1.8,   0,    0],
+    y=[5.99, 5.99,   7.99,  7.99, 5.99],
+    z=[0, 0, 0, 0, 0],
+    color='lightpink',
+    opacity=0.7
+)
 
 # add 1 st toelit
 toelit_1 = go.Mesh3d(
@@ -50,7 +58,7 @@ kitchen = go.Mesh3d(
     opacity=0.7
 )
 
-room_1st_floor = [room_floor_1, toelit_1, kitchen] + toelit_1_wall
+room_1st_floor = [room_floor_1, toelit_1, kitchen, sofa_1] + toelit_1_wall
 
 # ------------------------ Create a room 2nd floor -------------------------------
 room_floor_2 = go.Mesh3d(
