@@ -2,9 +2,9 @@ import streamlit as st
 import plotly.graph_objects as go
 
 # Create room dimensions
-room_width = 6
-room_height = 3
-room_length = 8
+room_width = 3.54
+room_height = 2.7
+room_length = 11.79
 
 # Create room walls
 room_walls = [
@@ -19,8 +19,8 @@ room_walls = [
 
 # ------------------  Create 1st floor room ----------------------------
 room_floor = go.Mesh3d(
-    x=[0, 3.7, 3.7,   0, 0],
-    y=[0, 0,   11.79, 11.79, 0],
+    x=[0, room_width, room_width,   0,           0],
+    y=[0, 0,          room_length,  room_length, 0],
     z=[0, 0, 0, 0, 0],
     color='lightgray',
     opacity=0.7
@@ -37,8 +37,8 @@ toelit_1 = go.Mesh3d(
 
 # create a kitchen
 kitchen = go.Mesh3d(
-    x=[0,    3.7,  3.7,   0,     0],
-    y=[7.99, 7.99, 11.79, 11.79, 7.99],
+    x=[0,    room_width,  room_width,   0,              0],
+    y=[7.99, 7.99,        room_length,  room_length, 7.99],
     z=[0, 0, 0, 0, 0],
     color='lightyellow',
     opacity=0.7
