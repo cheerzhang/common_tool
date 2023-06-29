@@ -35,9 +35,9 @@ bar = [
     go.Mesh3d(x=[1.5,2.3,2.3,1.5,1.5],y=[1.2,1.2,2.5,2.5,1.2],z=[0.7,0.7,0,0,0.7], color='yellow', opacity=0.7),
 ]
 bath = [
-    go.Mesh3d(x=[0,1,1,0,0],y=[1.2,1.2,2.2,2.2,1.2],z=[0,0,0,0,0], color='lightblue', opacity=0.7),
-    go.Mesh3d(x=[0,1,1,0,0],y=[1.2,1.2,2.2,2.2,1.2],z=[2,2,2,2,2], color='lightblue', opacity=0.7),
-    go.Mesh3d(x=[1,1.01,1.01,1,1],y=[1.2,1.2,2.2,2.2,1.2],z=[2,0,0,2,2], color='lightblue', opacity=0.7),
+    go.Mesh3d(x=[0,0.9,0.9,0,0],y=[1.2,1.2,2.2,2.2,1.2],z=[2,2,2,2,2], color='lightblue', opacity=0.7),
+    go.Mesh3d(x=[0.9,0.91,0.91,0.9,0.9],y=[1.2,1.2,2.2,2.2,1.2],z=[2,0,0,2,2], color='lightblue', opacity=0.7),
+    go.Mesh3d(x=[0,0.9,0.9,0,0],y=[1.2,1.2,1.21,1.21,1.2],z=[0,0,2,2,0], color='lightblue', opacity=0.7),
 ]
 floor_1 = [room_floor] + room_wall + bar + bath
 # --------------------------- stair ---------------------------------
