@@ -31,12 +31,6 @@ def highlight_and_translate_text(text):
 			st.write(f"**{word}** - {translation}")
 
 
-'''
-if token != "":
-	word = "krappe"
-	word_meaning = get_translation(token, word)
-	st.write(word_meaning)
- '''
 
 # Dutch article
 article = """
@@ -58,7 +52,7 @@ options = st.multiselect(
     'Chose words to translate',
     words_list,
     [])
-'''
+
 if token != "" and options != "":
 	word = options
 	word_meaning = get_translation(token, word)
@@ -66,4 +60,4 @@ if token != "" and options != "":
 	st.write(words_list)
 	if st.button('Save this word'):
 		st.write(f'Ok, no problem, save {word} with {word_meaning}')
-'''
+
