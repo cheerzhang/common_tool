@@ -26,5 +26,5 @@ st.write('The current token used is:', token)
 
 
 if token != "":
-	word_meaning = get_translation(token, word)
+	word_meaning = get_translation(token, "woningen")
 	st.write(word_meaning)
