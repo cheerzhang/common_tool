@@ -48,8 +48,6 @@ if st.button('Translate this word'):
 	if token != "" and options != "":
 		word_meaning = get_translation(token, options)
 		st.write(f'words:{options} means {word_meaning}')
-
-if st.button('Save this word'):
-	if word_meaning != '':
-		st.write(f'Ok, no problem, save {word} with {word_meaning}')
+		if st.button('Save this word'):
+			st.write(f'Ok, no problem, save {word} with {word_meaning}')
 
