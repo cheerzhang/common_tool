@@ -24,6 +24,7 @@ room_wall = [
     go.Mesh3d(x=[0, 0.01, 0.01,0,0],y=[0,0,5,5,0],z=[0,2,2,0,0], color='lightgray', opacity=0.7), # left
     go.Mesh3d(x=[2.29,2.3,2.3,2.29,2.29], y=[0,0,5,5,0], z=[2,0,0,2,2], color='lightgray', opacity=0.7), # right
     go.Mesh3d(x=[0,2.3,2.3,0,0], y=[0,0,0.01,0.01,0], z=[0,0,2,2,0], color='lightgray', opacity=0.7), # back
+    go.Mesh3d(x=[0,2.3,2.3,0,0], y=[4.99,4.99,5,5,4.99], z=[2,2,0,0,2], color='lightgray', opacity=0.7), # front
 ]
 
 floor_1 = [room_floor] + room_wall
