@@ -54,7 +54,14 @@ room_floor_2 = go.Mesh3d(
     color='lightgray',
     opacity=0.7
 )
-room_2nd_floor = [room_floor_2]
+room_2nd_room_1 = go.Mesh3d(
+    x=[0, room_width, room_width,   0,           0],
+    y=[0, 0,          2.46,         2.46,        0],
+    z=[room_height, room_height, room_height, room_height, room_height],
+    color='lightpink',
+    opacity=0.7
+)
+room_2nd_floor = [room_floor_2, room_2nd_room_1]
 
 
 # Combine room walls and roof into a data list
