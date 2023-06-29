@@ -27,11 +27,14 @@ room_wall = [
     go.Mesh3d(x=[0,2.3,2.3,0,0], y=[4.99,4.99,5,5,4.99], z=[2,2,0,0,2], color='lightgray', opacity=0.7), # front
 ]
 bed = [
-    go.Mesh3d(x=[0,2.3,2.3,0,0],y=[0,0,1.5,1.5,0],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
+    go.Mesh3d(x=[1.8,2.3,2.3,1.8,1.8],y=[1.5,1.5,2.5,2.5,1.5],z=[0.5,0.5,0.5,0.5,0.5], color='lightpink', opacity=0.7),
     go.Mesh3d(x=[0,2.3,2.3,0,0],y=[1.5,1.5,1.51,1.51,1.5],z=[0.5,0.5,0,0,0.5], color='lightpink', opacity=0.7),
 ]
-
-floor_1 = [room_floor] + room_wall
+bar = [
+    go.Mesh3d(x=[0,2.3,2.3,0,0],y=[0,0,1.5,1.5,0],z=[0.7,0.7,0.7,0.7,0.7], color='yellow', opacity=0.7),
+    go.Mesh3d(x=[0,2.3,2.3,0,0],y=[0,0,1.5,1.5,0],z=[0.7,0.7,0,0,0.7], color='yellow', opacity=0.7),
+]
+floor_1 = [room_floor] + room_wall + bar
 # --------------------------- stair ---------------------------------
 
 
