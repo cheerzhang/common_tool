@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from data.vocabulary import arr
+from data.vocabulary import arr_stop_word, arr_known_word
 
 token = st.text_input('Type in translate API token:', '')
 st.write('The current token used is:', token)
@@ -47,8 +47,21 @@ Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe v
 
 st.markdown(article)
 words = list(set(article.split()))
+except_arr = arr_stop_word + arr_known_word
 words_list = []
 for i in words:
-	if i not in arr:
+	if i not in except_arr:
 		words_list.append(i)
-st.write(words_list)
+		
+options = st.multiselect(
+    'Chose words to translate',
+    words_list,
+    [''])
+
+if token != "" and options != "":
+	word = options
+	word_meaning = get_translation(token, word)
+	st.write(f'words:{options} means {word_meaning}')
+	st.write(words_list)
+	if st.button('Save this word'):
+		st.write(f'Ok, no problem, save {word} with {word_meaning}')
