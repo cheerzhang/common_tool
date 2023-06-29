@@ -45,6 +45,3 @@ Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe v
 """
 
 st.markdown(article)
-
-# Highlight and translate text
-highlight_and_translate_text(article)
