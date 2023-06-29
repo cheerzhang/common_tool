@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 # Create room walls
 room_walls = [
     go.Mesh3d(
-        x=[0, 3.54, 3,54,   0,           0],
+        x=[0, 11.79, 11.79,   0,           0],
         y=[0, 0,    11.79,  11.79, 0],
         z=[0, 0, 0, 0, 0],
         color='lightgray',
