@@ -53,10 +53,10 @@ for i in words:
 	if i not in except_arr:
 		words_list.append(i.lower().strip('.'))
 
-st.write(words_list)
+
 options = st.multiselect(
     'Chose words to translate',
-    ['a', 'b'],
+    words_list,
     [])
 '''
 if token != "" and options != "":
