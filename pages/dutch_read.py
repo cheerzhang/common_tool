@@ -18,7 +18,7 @@ def get_translation(token, word):
 	response = requests.post(url, data=payload, headers=headers).json()
 	st.write(response)
 	new_word = response['data']['translations'][0]['translatedText']
-    	return new_word
+	return new_word
 
 token = st.text_input('Type in translate API token:', '')
 st.write('The current token used is:', token)
