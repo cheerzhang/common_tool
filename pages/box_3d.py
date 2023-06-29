@@ -31,10 +31,15 @@ bed = [
     go.Mesh3d(x=[0,2.3,2.3,0,0],y=[1.2,1.2,1.21,1.21,1.2],z=[0.5,0.5,0,0,0.5], color='lightpink', opacity=0.7),
 ]
 bar = [
-    go.Mesh3d(x=[1.8,2.3,2.3,1.8,1.8],y=[1.2,1.2,2.5,2.5,1.2],z=[0.7,0.7,0.7,0.7,0.7], color='yellow', opacity=0.7),
-    go.Mesh3d(x=[1.8,2.3,2.3,1.8,1.8],y=[1.2,1.2,2.5,2.5,1.2],z=[0.7,0.7,0,0,0.7], color='yellow', opacity=0.7),
+    go.Mesh3d(x=[1.5,2.3,2.3,1.5,1.5],y=[1.2,1.2,2.5,2.5,1.2],z=[0.7,0.7,0.7,0.7,0.7], color='yellow', opacity=0.7),
+    go.Mesh3d(x=[1.5,2.3,2.3,1.5,1.5],y=[1.2,1.2,2.5,2.5,1.2],z=[0.7,0.7,0,0,0.7], color='yellow', opacity=0.7),
 ]
-floor_1 = [room_floor] + room_wall + bar
+bath = [
+    go.Mesh3d(x=[0,1,1,0,0],y=[1.2,1.2,2.2,2.2,1.2],z=[0,0,0,0,0], color='lightblue', opacity=0.7),
+    go.Mesh3d(x=[0,1,1,0,0],y=[1.2,1.2,2.2,2.2,1.2],z=[2,2,2,2,2], color='lightblue', opacity=0.7),
+    go.Mesh3d(x=[1,1.01,1.01,1,1],y=[1.2,1.2,2.2,2.2,1.2],z=[2,0,0,2,2], color='lightblue', opacity=0.7),
+]
+floor_1 = [room_floor] + room_wall + bar + bath
 # --------------------------- stair ---------------------------------
 
 
