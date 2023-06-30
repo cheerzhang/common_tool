@@ -46,11 +46,10 @@ word_str = ' '.join(options)
 word_meaning = ''
 
 if st.button('Translate this word'):
-	# search on dict first
-	if word_str is in except_arr:
-		word_meaning = 'you should know it'
-	else:
-		word_meaning = 'translated'
-		st.write(f'Word: {word_str} means {word_meaning}')
-
+    # search on dict first
+    if word_ in except_arr:
+        word_meaning = 'you should know it'
+    else:
+        word_meaning = 'translated'
+    st.write(f'Word: {word_} means {word_meaning}')
 
