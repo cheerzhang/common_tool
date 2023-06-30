@@ -5,6 +5,7 @@ def long_running_function(param1, param2):
     # Perform time-consuming computations or data retrieval here
     # ...
     # Return the result
+    result = param1 + param2
     return result
 
 def main():
