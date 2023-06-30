@@ -42,15 +42,15 @@ for i in words:
 		words_list.append(i.lower().strip('.'))
 
 options = st.multiselect('Choose words to translate', words_list, [])
-word_ = ' '.join(options)
+word_str = ' '.join(options)
 word_meaning = ''
 
 if st.button('Translate this word'):
 	# search on dict first
-	if word_ is in except_arr:
+	if word_str is in except_arr:
 		word_meaning = 'you should know it'
 	else:
 		word_meaning = 'translated'
-		st.write(f'Word: {word_} means {word_meaning}')
+		st.write(f'Word: {word_str} means {word_meaning}')
 
 
