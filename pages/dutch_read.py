@@ -82,3 +82,16 @@ st.download_button(
     file_name='dutch.csv', 
     mime='text/csv',
 )
+
+selected_options = []
+
+options = ['Option 1', 'Option 2', 'Option 3']
+
+selected = st.multiselect('Select options', options)
+
+if selected:
+    selected_options.append(selected)
+    st.write('Selected options:')
+    for selection in selected_options:
+        st.write(selection)
+
