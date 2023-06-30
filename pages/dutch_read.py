@@ -15,7 +15,7 @@ Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe v
 
 
 df = pd.read_csv('https://raw.githubusercontent.com/cheerzhang/common_tool/main/data/dutch.csv')
-df = df [['word','translate']]
+df = df [['word', 'translate']]
 
 # -----------------------  logic --------------------------- #
 token = st.text_input('Type in translate API token:', '')
