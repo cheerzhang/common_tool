@@ -56,13 +56,8 @@ if st.button('Translate this word'):
 	    except_arr = arr_stop_word + arr_known_word
     st.write(f'Word: {word_} means {word_meaning}')
     
-df = pd.DataFrame({
-	'word': ['organisatie', 'appartementen', 'woning', 'woningcorporatie', 'oplopen', 'heel', 'omkopen', 'vaker', 'euro','tot', 'met', 'te', 'die', 'contact','het','zo',
-  'willen','Nederland','een','om','in'],
-	'translate': ['organisatie', 'appartementen', 'woning', 'woningcorporatie', 'oplopen', 'heel', 'omkopen', 'vaker', 'euro','tot', 'met', 'te', 'die', 'contact','het','zo',
-  'willen','Nederland','een','om','in']
-})
-df.to_csv('dutch.csv', index=False)
+df = pd.read_csv('https://raw.githubusercontent.com/cheerzhang/common_tool/main/data/dutch.csv')
+st.dataframe(df)
 
 @st.cache
 def convert_df(df):
