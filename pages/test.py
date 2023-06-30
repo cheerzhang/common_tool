@@ -1,34 +1,23 @@
 import streamlit as st
 
-@st.cache_data
-def long_running_function(param1, param2):
-    # Perform time-consuming computations or data retrieval here
-    # ...
-    # Return the result
-    result = int(param1) + int(param2)
-    return result
-
-@st.cache_data
-def save_data(arr, result):
-    arr.append(result)
-    return arr
-
 def main():
-    arr = []
-    st.title("Long-Running Function Example")
-    
-    # Input parameters
-    param1 = st.slider("Parameter 1", 0, 10, 0)
-    param2 = st.slider("Parameter 2", 0, 10, 0)
+    st.title("Option Selection")
 
-    # Call the long-running function
-    result = long_running_function(param1, param2)
-    arr = save_data(arr, result)
+    options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5',
+               'Option 6', 'Option 7', 'Option 8', 'Option 9', 'Option 10']
+    selected_options = []
 
-    # Display the result
-    st.write("Result:", arr)
+    selected = st.multiselect("Select options", options)
+    selected_options.extend(selected)
+
+    if st.button("Print Selection"):
+        st.write("Selected Options:")
+        for i, option in enumerate(selected_options, start=1):
+            st.write(f"{i}. {option}")
 
 if __name__ == "__main__":
-    main() 
+    main()
+
+
 
 
