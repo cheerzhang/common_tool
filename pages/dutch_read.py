@@ -57,6 +57,9 @@ if st.button('Translate this word'):
     st.write(f'Word: {word_} means {word_meaning}')
     
 df = pd.dataframe({
-	word: [],
-	translate: []
+	'word': ['organisatie', 'appartementen', 'woning', 'woningcorporatie', 'oplopen', 'heel', 'omkopen', 'vaker', 'euro','tot', 'met', 'te', 'die', 'contact','het','zo',
+  'willen','Nederland','een','om','in'],
+	'translate': ['organisatie', 'appartementen', 'woning', 'woningcorporatie', 'oplopen', 'heel', 'omkopen', 'vaker', 'euro','tot', 'met', 'te', 'die', 'contact','het','zo',
+  'willen','Nederland','een','om','in']
 })
+df.to_csv('../data/dutch.csv', index=False)
