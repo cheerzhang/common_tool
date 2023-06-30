@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-from data.vocabulary import arr_stop_word, arr_known_word
+
 
 
 
@@ -14,6 +14,10 @@ Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe v
 
 
 
+df = pd.read_csv('https://raw.githubusercontent.com/cheerzhang/common_tool/main/data/dutch.csv')
+df = df [['word','translate']]
+
+# -----------------------  logic --------------------------- #
 token = st.text_input('Type in translate API token:', '')
 st.write('The current token used is:', token)
 def get_translation(token, word):
@@ -36,35 +40,42 @@ def get_translation(token, word):
 
 st.markdown(article)
 words = list(set(article.split()))
-except_arr = arr_stop_word + arr_known_word
+arr_known_word = df['word'].unique()
 words_list = []
 for i in words:
-	if i not in except_arr:
+	if i not in arr_known_word:
 		words_list.append(i.lower().strip('.'))
 
 options = st.multiselect('Choose words to translate', words_list, [])
 word_ = ' '.join(options)
 word_meaning = ''
+df_word_arr = []
+df_translate_arr = []
 
 if st.button('Translate this word'):
     # search on dict first
-    if word_ in except_arr:
+    if word_ in arr_known_word:
 	    word_meaning = 'you should know it'
     else:
 	    word_meaning = 'translated'
-	    arr_known_word = arr_known_word + [word_meaning]
-	    except_arr = arr_stop_word + arr_known_word
+	    arr_known_word = arr_known_word + [word_]
+	    df_word_arr.append(word_)
+	    df_translate_arr.append(word_meaning)
     st.write(f'Word: {word_} means {word_meaning}')
     
-df = pd.read_csv('https://raw.githubusercontent.com/cheerzhang/common_tool/main/data/dutch.csv')
-st.dataframe(df)
+new_df = pd.DataFrame({
+	'word': df_word_arr,
+	'translate': df_translate_arr
+})
+st.dataframe(new_df)
+comfbine_df = pd.concat([df, new_df], axis=0)
 
 @st.cache
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode('utf-8')
 
-csv = convert_df(df)
+csv = convert_df(comfbine_df)
 st.download_button(
     label="Download data as CSV",
     data=csv,
