@@ -8,7 +8,13 @@ def long_running_function(param1, param2):
     result = int(param1) + int(param2)
     return result
 
+@st.cache_data
+def save_data(arr, result):
+    arr.append(result)
+    return arr
+
 def main():
+    arr = []
     st.title("Long-Running Function Example")
     
     # Input parameters
@@ -17,9 +23,10 @@ def main():
 
     # Call the long-running function
     result = long_running_function(param1, param2)
+    arr = save_data(arr, result)
 
     # Display the result
-    st.write("Result:", result)
+    st.write("Result:", arr)
 
 if __name__ == "__main__":
     main() 
