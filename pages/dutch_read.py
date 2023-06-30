@@ -42,7 +42,7 @@ for i in words:
 		words_list.append(i.lower().strip('.'))
 
 options = st.multiselect('Choose words to translate', words_list, [])
-word_str = ' '.join(options)
+word_ = ' '.join(options)
 word_meaning = ''
 
 if st.button('Translate this word'):
