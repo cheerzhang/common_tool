@@ -89,9 +89,9 @@ options = ['Option 1', 'Option 2', 'Option 3']
 
 selected = st.multiselect('Select options', options)
 
-if selected:
+if st.button('Save Selection'):
     selected_options.append(selected)
-    st.write('Selected options:')
-    for selection in selected_options:
-        st.write(selection)
 
+st.write('Selected options:')
+for selection in selected_options:
+    st.write(selection)
