@@ -41,18 +41,15 @@ for i in words:
 	if i not in except_arr:
 		words_list.append(i.lower().strip('.'))
 
-options = st.multiselect('Chose words to translate', words_list, [])
-word_ = ''
+options = st.multiselect('Choose words to translate', words_list, [])
+word_ = ' '.join(options)
 word_meaning = ''
-for item in options:
-	word_ = word_ + " " + item
 
-word_meaning = ''
-a = word_meaning
 if st.button('Translate this word'):
-	word_meaning = 'translated'
-	st.write(f'words:{word_} means {word_meaning}')
+    word_meaning = 'translated'
+    st.write(f'Word: {word_} means {word_meaning}')
 
 if st.button('Save this word'):
-	st.write(f'Ok, no problem, save {word_} with {word_meaning}')
+    st.write(f'Ok, no problem, save {word_} with {word_meaning}')
+
 
