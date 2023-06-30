@@ -62,4 +62,4 @@ df = pd.DataFrame({
 	'translate': ['organisatie', 'appartementen', 'woning', 'woningcorporatie', 'oplopen', 'heel', 'omkopen', 'vaker', 'euro','tot', 'met', 'te', 'die', 'contact','het','zo',
   'willen','Nederland','een','om','in']
 })
-df.to_csv('../data/dutch.csv', index=False)
+df.to_csv('dutch.csv', index=False)
