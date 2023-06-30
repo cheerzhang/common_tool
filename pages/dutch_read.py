@@ -51,5 +51,8 @@ if st.button('Translate this word'):
         word_meaning = 'you should know it'
     else:
         word_meaning = 'translated'
+        arr_known_word = arr_known_word + [word_meaning]
+	except_arr = arr_stop_word + arr_known_word
     st.write(f'Word: {word_} means {word_meaning}')
+    
 
