@@ -13,7 +13,7 @@ def main():
     
     # Input parameters
     param1 = st.slider("Parameter 1", 0, 10, 0)
-    param2 = st.slider("Parameter 1", 0, 10, 0)
+    param2 = st.slider("Parameter 2", 0, 10, 0)
 
     # Call the long-running function
     result = long_running_function(param1, param2)
