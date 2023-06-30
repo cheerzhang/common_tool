@@ -12,8 +12,8 @@ def main():
     st.title("Long-Running Function Example")
     
     # Input parameters
-    param1 = st.slider("Parameter 1", 0, 10)
-    param2 = st.text_input("Parameter 2", "")
+    param1 = st.slider("Parameter 1", 0, 10, 0)
+    param2 = st.text_input("Parameter 2", "", "0")
 
     # Call the long-running function
     result = long_running_function(param1, param2)
