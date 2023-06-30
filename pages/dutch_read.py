@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import pandas as pd
 from data.vocabulary import arr_stop_word, arr_known_word
 
 
@@ -48,11 +49,14 @@ word_meaning = ''
 if st.button('Translate this word'):
     # search on dict first
     if word_ in except_arr:
-        word_meaning = 'you should know it'
+	    word_meaning = 'you should know it'
     else:
-        word_meaning = 'translated'
-        arr_known_word = arr_known_word + [word_meaning]
-	except_arr = arr_stop_word + arr_known_word
+	    word_meaning = 'translated'
+	    arr_known_word = arr_known_word + [word_meaning]
+	    except_arr = arr_stop_word + arr_known_word
     st.write(f'Word: {word_} means {word_meaning}')
     
-
+df = pd.dataframe({
+	word: [],
+	translate: []
+})
