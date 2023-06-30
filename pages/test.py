@@ -1,5 +1,10 @@
 import streamlit as st
 
+
+def get_translate(word):
+    translate = word + '_translate'
+    return translate
+
 def main():
     st.title("Option Selection")
 
@@ -13,7 +18,8 @@ def main():
     if st.button("Print Selection"):
         st.write("Selected Options:")
         for i, option in enumerate(selected_options, start=1):
-            st.write(f"{i}. {option}")
+            t = get_translate(option)
+            st.write(f"{i}. {option}. {t}")
 
 if __name__ == "__main__":
     main()
