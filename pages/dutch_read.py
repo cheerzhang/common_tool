@@ -63,5 +63,4 @@ df = pd.DataFrame({
   'willen','Nederland','een','om','in']
 })
 df.to_csv('dutch.csv', index=False)
-st.write("File saved to GitHub:")
-st.write("https://raw.githubusercontent.com/cheerzhang/common_tool/main/data/dutch.csv")
+st.download_button("Download CSV", "dutch.csv")
