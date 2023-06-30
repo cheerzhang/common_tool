@@ -18,7 +18,6 @@ def main():
     if st.button("Print Selection"):
         st.write("Selected Options:")
         for i, option in enumerate(selected_options, start=1):
-            t = get_translate(option)
             st.write(f"{i}. {option}.")
 
 if __name__ == "__main__":
