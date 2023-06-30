@@ -21,6 +21,6 @@ def main():
     st.write("Result:", result)
 
 if __name__ == "__main__":
-    main()
+    main() 
 
 
