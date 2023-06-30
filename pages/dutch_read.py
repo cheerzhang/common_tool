@@ -52,6 +52,7 @@ word_meaning = ''
 df_word_arr = []
 df_translate_arr = []
 
+@st.cache_data
 if st.button('Translate this word'):
     # search on dict first
     if word_ in arr_known_word:
