@@ -28,9 +28,12 @@ def get_translation(token, word):
 		"X-RapidAPI-Key": token,
 		"X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
 	}
+    new_word = ''
     response = requests.post(url, data=payload, headers=headers).json()
-    st.write(response)
-    new_word = response['data']['translatedText']
+    if response.status == "success":
+        new_word = response['data']['translatedText']
+    else:
+        st.write(response)
     return new_word
 
 def clean(word):
