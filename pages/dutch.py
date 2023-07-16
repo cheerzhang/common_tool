@@ -12,22 +12,23 @@ voc = pd.read_csv(path)
 st.dataframe(voc)
 
 def clean(word):
-    chars = "'"
-    translation_table = str.maketrans("", "", chars)
-    cleaned_text = word.translate(translation_table)
+    pattern = r'[.,"]'
+    cleaned_text = re.sub(pattern, '', word)
     return cleaned_text
 
 def get_unknow_word(word, voc):
     word = clean(word)
     if word not in voc['word'].unique():
         st.write(f"unknown word : {word}")
+        return word + str("()")
     else:
         translate = voc[voc['word'] == word]['translate'].values[0]
         st.write(f"word : {word} - {translate}")
+        return word
 
 str_new = ''
 for v in txt.split():
-    str_new = str_new + get_unknow_word(v, voc)
+    str_new = str_new + get_unknow_word(v, voc) + ' '
 
 
 st.write(str_new)
