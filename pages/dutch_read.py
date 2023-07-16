@@ -67,6 +67,7 @@ def convert_df(df):
 
 if st.button('Add all words'):
     token = st.session_state['translate_api_token']
+    st.write(token)
     words = txt.split()
     add_df = pd.DataFrame({'word': st.session_state['add_words'], 'translate': st.session_state['add_translates']})
     check_new = pd.concat([voc, add_df], axis=0)
