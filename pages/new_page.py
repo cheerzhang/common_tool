@@ -28,7 +28,7 @@ def get_translation(token, word):
 		"X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
 	}
 	response = requests.post(url, data=payload, headers=headers).json()
-	# st.write(response)
+	st.write(response)
 	new_word = response['data']['translations'][0]['translatedText']
 	return new_word
 
