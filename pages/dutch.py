@@ -10,3 +10,7 @@ path = 'data/dutch.csv'
 voc = pd.read_csv(path)
 st.dataframe(voc)
 
+
+for v in txt.split():
+    if v.strip("'") in voc['word'].unique():
+        st.write(f"unknown word : {v}")
