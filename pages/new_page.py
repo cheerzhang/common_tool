@@ -1,14 +1,36 @@
 import streamlit as st
 import pandas as pd
 import re
+import requests
 
 st.title('Dutch Article')
+token = st.text_input('Type in translate API token:', '')
+
 txt = st.text_area('type in the article', ' ')
 
 path = 'data/dutch.csv'
 voc = pd.read_csv(path)
 add_words = []
 add_translates = []
+
+
+def get_translation(token, word):
+	url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+	payload = {
+		"q": word,
+		"target": "zh-cn",
+		"source": "nl"
+	}
+	headers = {
+		"content-type": "application/x-www-form-urlencoded",
+		"Accept-Encoding": "application/gzip",
+		"X-RapidAPI-Key": token,
+		"X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
+	}
+	response = requests.post(url, data=payload, headers=headers).json()
+	# st.write(response)
+	new_word = response['data']['translations'][0]['translatedText']
+	return new_word
 
 def clean(word):
     pattern = r"[.,']"
@@ -19,8 +41,9 @@ def get_unknow_word(word, voc):
     word_ = clean(word)
     if word_ not in voc['word'].unique():
         add_words.append(word_)
-        add_translates.append(word)
-        return f"({word}:xxx)"
+        translate = get_translation(token, word)
+        add_translates.append(translate)
+        return f"({word}:{translate})"
     else:
         translate = voc[voc['word'] == word_]['translate'].values[0]
         return word
