@@ -60,7 +60,6 @@ if st.button('Add all words'):
     add_df = pd.DataFrame({'word': add_words, 'translate': add_translates})
     new_df = pd.concat([voc, add_df], axis=0)
     csv_df = convert_df(new_df)
-    new_df.to_csv(path, index=False).encode('utf-8')
     st.download_button(
       label="Download data as CSV",
       data=csv_df,
