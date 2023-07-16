@@ -5,7 +5,6 @@ import re
 st.title('Dutch Article')
 txt = st.text_area('type in the article', ' ')
 
-
 path = 'data/dutch.csv'
 voc = pd.read_csv(path)
 st.dataframe(voc)
