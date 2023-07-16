@@ -24,11 +24,11 @@ def get_unknow_word(word, voc):
     else:
         translate = voc[voc['word'] == word]['translate'].values[0]
         st.write(f"word : {word} - {translate}")
-        return word
+        return f"{word}"
 
 str_new = ''
 for v in txt.split():
     str_new = str_new + get_unknow_word(v, voc) + " "
 
 
-st.write(f"{str_new}")
+st.write(str_new)
