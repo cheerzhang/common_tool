@@ -10,8 +10,11 @@ txt = st.text_area('type in the article', ' ')
 
 path = 'data/dutch.csv'
 voc = pd.read_csv(path)
-add_words = []
-add_translates = []
+
+if 'add_words' not in st.session.state:
+    st.session.state['add_words'] = []
+if 'add_translates' not in st.session.state:
+    st.session.state['add_translates'] = []
 
 
 def get_translation(token, word):
@@ -44,9 +47,9 @@ def clean(word):
 def get_unknow_word(word, voc):
     word_ = clean(word)
     if word_ not in voc['word'].unique():
-        add_words.append(word_)
+        st.session.state['add_words'].append(word_)
         translate = get_translation(token, word).strip('\n')
-        add_translates.append(translate)
+        st.session.state['add_translates'].append(translate)
         return f"({word}:{translate})"
     else:
         translate = voc[voc['word'] == word_]['translate'].values[0]
@@ -59,9 +62,11 @@ def convert_df(df):
 
 if st.button('Add all words'):
     words = txt.split()
+    add_df = pd.DataFrame({'word': st.session.state['add_words'], 'translate': st.session.state['add_translates']})
+    check_new = pd.concat([voc, add_df], axis=0)
     str_new = ' '.join(get_unknow_word(w, voc) for w in words)
     st.write(str_new)
-    add_df = pd.DataFrame({'word': add_words, 'translate': add_translates})
+    add_df = pd.DataFrame({'word': st.session.state['add_words'], 'translate': st.session.state['add_translates']})
     new_df = pd.concat([voc, add_df], axis=0)
     csv_df = convert_df(new_df)
     st.download_button(
