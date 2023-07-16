@@ -22,11 +22,8 @@ def get_unknow_word(word, voc):
         translate = voc[voc['word'] == word]['translate'].values[0]
         return f"{word}"
 
-str_new = ''
-for v in txt.split():
-    str_new = str_new + get_unknow_word(v, voc) + " "
-
-str_new = str_new.replace("\n", "")
+words = txt.split()
+str_new = ' '.join(get_unknow_word(w, voc) for w in words)
 st.write(str_new)
 if st.button('Add all words'):
     st.bollon()
