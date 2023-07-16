@@ -26,6 +26,7 @@ str_new = ''
 for v in txt.split():
     str_new = str_new + get_unknow_word(v, voc) + " "
 
+str_new = str_new.replace("\n", "")
 st.write(str_new)
 if st.button('Add all words'):
     st.bollon()
