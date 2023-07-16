@@ -30,7 +30,7 @@ def get_translation(token, word):
 	}
     new_word = ''
     response = requests.post(url, data=payload, headers=headers).json()
-    if response.status == "success":
+    if response['status'] == 'success':
         new_word = response['data']['translatedText']
     else:
         st.write(response)
