@@ -19,7 +19,7 @@ def get_translation(token, word):
     url = "https://text-translator2.p.rapidapi.com/translate"
     payload = {
 		"source_language": "nl",
-	    "target_language": "zh-cn",
+	    "target_language": "en",
 	    "text": "sluit"
 	}
     headers = {
