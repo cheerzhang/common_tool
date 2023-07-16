@@ -30,7 +30,7 @@ def get_translation(token, word):
 	}
     response = requests.post(url, data=payload, headers=headers).json()
     st.write(response)
-    new_word = response['data']['translations'][0]['translatedText']
+    new_word = response['data']['translatedText']
     return new_word
 
 def clean(word):
