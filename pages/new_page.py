@@ -34,7 +34,7 @@ def get_translation(token, word):
 
 def clean(word):
     pattern = r"[.,']"
-    cleaned_text = re.sub(pattern, '', word)
+    cleaned_text = re.sub(pattern, '', word.lower())
     return cleaned_text
 
 def get_unknow_word(word, voc):
