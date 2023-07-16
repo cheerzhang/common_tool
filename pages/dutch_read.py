@@ -4,7 +4,7 @@ import re, os, requests
 
 st.title('Dutch Article')
 
-if 'translate_api_token' not in secrets:
+if not secrets.get_state("translate_api_token"):
     token = st.text_input('Type in translate API token:', '')
     secrets.set("translate_api_token", token)
 else:
