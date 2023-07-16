@@ -1,73 +1,70 @@
 import streamlit as st
-import requests
 import pandas as pd
+import re
+import requests
 
-
-
-
-
-article = """
-Woningcorporatie Vesteda verbreekt het contact met kandidaat-huurders die de organisatie willen omkopen om zo een huurwoning te bemachtigen. De potentiële huurders bieden steeds vaker geld om voorrang te krijgen op een woning.
-
-Vesteda verhuurt appartementen en andere woningen in heel Nederland. De krappe verhuurmarkt leidt volgens Vesteda tot ongewenst gedrag zoals pogingen tot omkoping. Het gaat om bedragen die oplopen tot 5000 euro.
-"""
-
-
-
-df = pd.read_csv('https://raw.githubusercontent.com/cheerzhang/common_tool/main/data/dutch.csv')
-df = df [['word', 'translate']]
-
-# -----------------------  logic --------------------------- #
+st.title('Dutch Article')
 token = st.text_input('Type in translate API token:', '')
-st.write('The current token used is:', token)
+
+txt = st.text_area('type in the article', ' ')
+
+path = 'data/dutch.csv'
+voc = pd.read_csv(path)
+add_words = []
+add_translates = []
+
+
 def get_translation(token, word):
-	url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
-	payload = {
-		"q": word,
-		"target": "zh-cn",
-		"source": "nl"
+	# url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+    url = "https://text-translator2.p.rapidapi.com/translate"
+    payload = {
+		"source_language": "nl",
+	    "target_language": "zh-cn",
+	    "text": "sluit"
 	}
-	headers = {
+    headers = {
 		"content-type": "application/x-www-form-urlencoded",
 		"Accept-Encoding": "application/gzip",
 		"X-RapidAPI-Key": token,
-		"X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
+		"X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
 	}
-	response = requests.post(url, data=payload, headers=headers).json()
-	# st.write(response)
-	new_word = response['data']['translations'][0]['translatedText']
-	return new_word
+    response = requests.post(url, data=payload, headers=headers).json()
+    st.write(response)
+    new_word = response['data']['translations'][0]['translatedText']
+    return new_word
 
-st.markdown(article)
-words = list(set(article.split()))
-arr_known_word = df['word'].unique()
-words_list = []
-for i in words:
-	if i not in arr_known_word:
-		words_list.append(i.lower().strip('.'))
+def clean(word):
+    pattern = r"[.,']"
+    cleaned_text = re.sub(pattern, '', word.lower())
+    return cleaned_text
 
-options = st.multiselect('Choose words to translate', words_list, [])
-word_ = ' '.join(options)
-word_meaning = ''
-df_word_arr = []
-df_translate_arr = []
+def get_unknow_word(word, voc):
+    word_ = clean(word)
+    if word_ not in voc['word'].unique():
+        add_words.append(word_)
+        translate = get_translation(token, word)
+        add_translates.append(translate)
+        return f"({word}:{translate})"
+    else:
+        translate = voc[voc['word'] == word_]['translate'].values[0]
+        return word
 
-new_df = pd.DataFrame({
-	'word': df_word_arr,
-	'translate': df_translate_arr
-})
-st.dataframe(new_df)
-comfbine_df = pd.concat([df, new_df], axis=0)
-
-@st.cache
+@st.cache_data
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-    return df.to_csv().encode('utf-8')
+    return df.to_csv(index=False).encode('utf-8')
 
-csv = convert_df(comfbine_df)
-st.download_button(
-    label="Download data as CSV",
-    data=csv,
-    file_name='dutch.csv', 
-    mime='text/csv',
-)
+if st.button('Add all words'):
+    words = txt.split()
+    str_new = ' '.join(get_unknow_word(w, voc) for w in words)
+    st.write(str_new)
+    add_df = pd.DataFrame({'word': add_words, 'translate': add_translates})
+    new_df = pd.concat([voc, add_df], axis=0)
+    csv_df = convert_df(new_df)
+    st.download_button(
+      label="Download data as CSV",
+      data=csv_df,
+      file_name='dutch.csv', 
+      mime='text/csv',
+    )
+    st.balloons()
