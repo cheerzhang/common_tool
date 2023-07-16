@@ -34,9 +34,10 @@ def get_translation(token, word):
     response = requests.post(url, data=payload, headers=headers).json()
     if response['status'] == 'success':
         new_word = response['data']['translatedText']
+        return new_word
     else:
         st.write(response)
-    return new_word
+        return new_word
 
 def clean(word):
     pattern = r"[.,']"
