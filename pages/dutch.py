@@ -20,7 +20,7 @@ def get_unknow_word(word, voc):
     word = clean(word)
     if word not in voc['word'].unique():
         st.write(f"unknown word : {word}")
-        return word + str("()")
+        return f":yellow[{word}()]"
     else:
         translate = voc[voc['word'] == word]['translate'].values[0]
         st.write(f"word : {word} - {translate}")
@@ -31,4 +31,4 @@ for v in txt.split():
     str_new = str_new + get_unknow_word(v, voc) + ' '
 
 
-st.write(str_new)
+st.write(f"{str_new}")
