@@ -52,18 +52,6 @@ word_meaning = ''
 df_word_arr = []
 df_translate_arr = []
 
-@st.cache_data
-if st.button('Translate this word'):
-    # search on dict first
-    if word_ in arr_known_word:
-	    word_meaning = 'you should know it'
-    else:
-	    word_meaning = 'translated'
-	    arr_known_word = arr_known_word + [word_]
-	    df_word_arr.append(word_)
-	    df_translate_arr.append(word_meaning)
-    st.write(f'Word: {word_} means {word_meaning}')
-    
 new_df = pd.DataFrame({
 	'word': df_word_arr,
 	'translate': df_translate_arr
