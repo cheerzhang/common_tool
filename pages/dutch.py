@@ -4,7 +4,6 @@ import re
 
 st.title('Dutch Article')
 txt = st.text_area('type in the article', ' ')
-st.write(txt)
 
 
 path = 'data/dutch.csv'
@@ -19,16 +18,15 @@ def clean(word):
 def get_unknow_word(word, voc):
     word = clean(word)
     if word not in voc['word'].unique():
-        st.write(f"unknown word : {word}")
         return f"({word}:xxx)"
     else:
         translate = voc[voc['word'] == word]['translate'].values[0]
-        st.write(f"word : {word} - {translate}")
         return f"{word}"
 
 str_new = ''
 for v in txt.split():
     str_new = str_new + get_unknow_word(v, voc) + " "
 
-
 st.write(str_new)
+if st.button('Add all words'):
+    st.bollon()
