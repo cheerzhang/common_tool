@@ -55,7 +55,7 @@ def get_unknow_word(word, voc):
     word_ = clean(word)
     if word_ not in voc['word'].unique():
         st.session_state['add_words'].append(word_)
-        translate = get_translation(token, word).strip('\n')
+        translate = get_translation(st.session_state['translate_api_token'], word).strip('\n')
         st.session_state['add_translates'].append(translate)
         return f"({word}:{translate})"
     else:
