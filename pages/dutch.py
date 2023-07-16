@@ -20,7 +20,7 @@ def get_unknow_word(word, voc):
     word = clean(word)
     if word not in voc['word'].unique():
         st.write(f"unknown word : {word}")
-        return str("(") + word + str(":xxx)")
+        return str("(") + str(word) + str(":xxx)")
     else:
         translate = voc[voc['word'] == word]['translate'].values[0]
         st.write(f"word : {word} - {translate}")
