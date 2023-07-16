@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import re
 
 st.title('Dutch Article')
 txt = st.text_area('type in the article', ' ')
@@ -10,8 +11,15 @@ path = 'data/dutch.csv'
 voc = pd.read_csv(path)
 st.dataframe(voc)
 
+def clean(word):
+    chars = "'"
+    translation_table = str.maketrans("", "", chars)
+    cleaned_text = word.translate(translation_table)
+    return cleaned_text
+
 def get_unknow_word(word, voc):
-    if word.strip("'") not in voc['word'].unique():
+    word = clean(word)
+    if word not in voc['word'].unique():
         st.write(f"unknown word : {word}")
     else:
         translate = voc[voc['word'] == word]['translate'].values[0]
