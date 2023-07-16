@@ -1,9 +1,14 @@
-import streamlit as st
+import streamlit as st,secrets
 import pandas as pd
 import re, os, requests
 
 st.title('Dutch Article')
-token = st.text_input('Type in translate API token:', '')
+
+if 'translate_api_token' not in secrets:
+    token = st.text_input('Type in translate API token:', '')
+    secrets.set("translate_api_token", token)
+else:
+    token = secrets["translate_api_token"]
 
 txt = st.text_area('type in the article', ' ')
 
