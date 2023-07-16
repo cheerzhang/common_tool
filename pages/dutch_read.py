@@ -45,7 +45,7 @@ def get_unknow_word(word, voc):
     word_ = clean(word)
     if word_ not in voc['word'].unique():
         add_words.append(word_)
-        translate = get_translation(token, word)
+        translate = get_translation(token, word).strip('\n')
         add_translates.append(translate)
         return f"({word}:{translate})"
     else:
