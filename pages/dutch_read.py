@@ -1,4 +1,4 @@
-import streamlit as st,secrets
+import streamlit as st, secrets
 import pandas as pd
 import re, os, requests
 
@@ -6,10 +6,11 @@ st.title('Dutch Article')
 
 if 'translate_api_token' not in st.session_state:
     token = st.text_input('Type in translate API token:', '')
-    secrets.set("translate_api_token", token) 
+    # secrets.set("translate_api_token", token) 
     st.session_state['translate_api_token'] = token
 else:
-    token = secrets["translate_api_token"]
+    # token = secrets["translate_api_token"]
+    token = st.session_state['translate_api_token']
 
 txt = st.text_area('type in the article', ' ')
 
