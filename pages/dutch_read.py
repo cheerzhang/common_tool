@@ -4,9 +4,10 @@ import re, os, requests
 
 st.title('Dutch Article')
 
-if not secrets.get_state("translate_api_token"):
+if 'translate_api_token' not in st.session_state:
     token = st.text_input('Type in translate API token:', '')
-    secrets.set("translate_api_token", token)
+    secrets.set("translate_api_token", token) 
+    st.session_state['translate_api_token'] = token
 else:
     token = secrets["translate_api_token"]
 
