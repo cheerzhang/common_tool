@@ -8,9 +8,6 @@ if 'translate_api_token' not in st.session_state:
     token = st.text_input('Type in translate API token:', '')
     # secrets.set("translate_api_token", token) 
     st.session_state['translate_api_token'] = token
-else:
-    # token = secrets["translate_api_token"]
-    token = st.session_state['translate_api_token']
 
 txt = st.text_area('type in the article', ' ')
 
@@ -39,6 +36,7 @@ def get_translation(token, word):
 	}
     new_word = ''
     response = requests.post(url, data=payload, headers=headers).json()
+    st.write(response)
     if response['status'] == 'success':
         new_word = response['data']['translatedText']
         return new_word
@@ -51,11 +49,11 @@ def clean(word):
     cleaned_text = re.sub(pattern, '', word.lower())
     return cleaned_text
 
-def get_unknow_word(word, voc):
+def get_unknow_word(word, voc, token):
     word_ = clean(word)
     if word_ not in voc['word'].unique():
         st.session_state['add_words'].append(word_)
-        translate = get_translation(st.session_state['translate_api_token'], word).strip('\n')
+        translate = get_translation(token, word).strip('\n')
         st.session_state['add_translates'].append(translate)
         return f"({word}:{translate})"
     else:
@@ -68,10 +66,11 @@ def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
 
 if st.button('Add all words'):
+    token = st.session_state['translate_api_token']
     words = txt.split()
     add_df = pd.DataFrame({'word': st.session_state['add_words'], 'translate': st.session_state['add_translates']})
     check_new = pd.concat([voc, add_df], axis=0)
-    str_new = ' '.join(get_unknow_word(w, voc) for w in words)
+    str_new = ' '.join(get_unknow_word(w, voc, token) for w in words)
     st.write(str_new)
     add_df = pd.DataFrame({'word': st.session_state['add_words'], 'translate': st.session_state['add_translates']})
     new_df = pd.concat([voc, add_df], axis=0)
