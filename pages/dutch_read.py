@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import re
-import requests
+import re, os, requests
 
 st.title('Dutch Article')
 token = st.text_input('Type in translate API token:', '')
@@ -11,10 +10,10 @@ txt = st.text_area('type in the article', ' ')
 path = 'data/dutch.csv'
 voc = pd.read_csv(path)
 
-if 'add_words' not in st.session.state:
-    st.session.state['add_words'] = []
-if 'add_translates' not in st.session.state:
-    st.session.state['add_translates'] = []
+if 'add_words' not in st.session_state:
+    st.session_state['add_words'] = []
+if 'add_translates' not in st.session_state:
+    st.session_state['add_translates'] = []
 
 
 def get_translation(token, word):
@@ -47,9 +46,9 @@ def clean(word):
 def get_unknow_word(word, voc):
     word_ = clean(word)
     if word_ not in voc['word'].unique():
-        st.session.state['add_words'].append(word_)
+        st.session_state['add_words'].append(word_)
         translate = get_translation(token, word).strip('\n')
-        st.session.state['add_translates'].append(translate)
+        st.session_state['add_translates'].append(translate)
         return f"({word}:{translate})"
     else:
         translate = voc[voc['word'] == word_]['translate'].values[0]
@@ -62,11 +61,11 @@ def convert_df(df):
 
 if st.button('Add all words'):
     words = txt.split()
-    add_df = pd.DataFrame({'word': st.session.state['add_words'], 'translate': st.session.state['add_translates']})
+    add_df = pd.DataFrame({'word': st.session_state['add_words'], 'translate': st.session_state['add_translates']})
     check_new = pd.concat([voc, add_df], axis=0)
     str_new = ' '.join(get_unknow_word(w, voc) for w in words)
     st.write(str_new)
-    add_df = pd.DataFrame({'word': st.session.state['add_words'], 'translate': st.session.state['add_translates']})
+    add_df = pd.DataFrame({'word': st.session_state['add_words'], 'translate': st.session_state['add_translates']})
     new_df = pd.concat([voc, add_df], axis=0)
     csv_df = convert_df(new_df)
     st.download_button(
@@ -75,4 +74,6 @@ if st.button('Add all words'):
       file_name='dutch.csv', 
       mime='text/csv',
     )
+    file_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'dutch.csv')
+    new_df.to_csv(file_path, index=False)
     st.balloons()
