@@ -43,4 +43,4 @@ if st.button('Add all words'):
       file_name='dutch.csv', 
       mime='text/csv',
     )
-    st.ballons()
+    st.balloons()
