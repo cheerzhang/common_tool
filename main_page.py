@@ -1,18 +1,12 @@
 import pandas as pd
 import streamlit as st
 
-# Using object notation
-add_selectbox = st.sidebar.selectbox(
-    "Anything ",
-    ("Email", "Home phone", "Mobile phone")
-)
+# main 2 column
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("### Tools")
+    with st.expander("gender data tools"):
+        st.markdown("Goal: Generate a dataset of first names and predict the likely gender associated with each name.")
 
-# Using "with" notation
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
-
-st.markdown("# Main page ")
-st.sidebar.markdown("# Main page 🎈")
+with col2:
+    st.markdown("### Models")
