@@ -1,11 +1,6 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.utils.class_weight import compute_class_weight
-from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from util import model_ml
 
