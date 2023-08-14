@@ -9,15 +9,7 @@ def convert_df(df):
 
 def app():
     st.markdown('# Gender Data Preparing')
-    col1, col2  = st.columns(2)
-    with col1:
-        with st.expander("sql"):
-            st.write(f"""SELECT first_name, gender
-                            FROM public.unique_customer
-                            where customer_type = 'P'
-                            limit 100;""")
-    with col2:
-        df_exist_file = st.file_uploader("Choose 'exist gender' file :", key="gender_exist_file_upload")
+    df_exist_file = st.file_uploader("Choose 'exist gender' file :", key="gender_exist_file_upload")
     
     df_file = st.file_uploader("Choose 'gender' file :", key="gender_file_upload")
     if df_file is not None and df_exist_file is not None:
