@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from util import model_ml
+import joblib
 
 
 @st.cache_data
@@ -48,6 +49,20 @@ def app():
                    'precision': [precision_tr, precision_te],
                    'recall': [recall_tr, recall_te]}
         st.dataframe(reesult)
+        # download model
+        with col_option1:
+            model_logistic_filename = "./models/logistic_gender.pkl"
+            joblib.dump(obj_model.model, model_logistic_filename)
+            with open(model_logistic_filename, 'rb') as f:
+                model_logistic_bytes = f.read()
+            st.download_button(label='Download Logistic Model', data=model_logistic_bytes, file_name='logistic_gender.pkl')
+        with col_option2:
+            model_countvectorizer_filename = "./models/countvectorizer_gender.pkl"
+            joblib.dump(obj_model.vectorizer, model_countvectorizer_filename)
+            with open(model_countvectorizer_filename, 'rb') as f:
+                model_countvectorizer_bytes = f.read()
+            st.download_button(label='Download CountVectorizer Model', data=model_countvectorizer_bytes, file_name='countvectorizer_gender.pkl')
+
 
         if df_pred is not None:
             df_p = pd.read_csv(df_pred)
