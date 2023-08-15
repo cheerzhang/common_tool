@@ -7,25 +7,8 @@ st.markdown("# Data Scientist Work Note")
 st.markdown("## Quick Data Task")
 
 # Pages under Data Task
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 with col1:
-    with st.expander(" [[Tool] CDDN](/tool_cddn)"):
-        st.markdown("""
-        The CDDN Data Task involves retrieving 2000 orders from the production database to evaluate a 3rd-party API's ability to recognize and match these orders in their own dataset. 
-        """)
-    with st.expander(" [[Tool] Fill Data (payment)](/tool_fill_behavior_data)"):
-        st.markdown("""
-        The task involves filling the payment behavior data for our intern in the system.
-        """)
-    with st.expander(" [[Tool] Fill App Data (new user)](/tool_app_data)"):
-        st.markdown("""
-        The task involves filling the app new users data into databased new user data.
-        """)
-with col2:
-    with st.expander(" [[Tool] Merchant](/tool_fetch_merchant)"):
-        st.markdown("""
-            The task involves checking the production database to retrieve 2000 successful orders from consumers who made purchases through the merchant 'Toeleveringonline'. 
-            """)
     with st.expander(" [[Tool] Combind dataframe](/tool_combine_df)"):
         st.markdown("""
         This tool for combind 2 dataframe concat and drop the duplicate rows (by id)
@@ -34,7 +17,7 @@ with col2:
         st.markdown("""
         This tool line chart with customized data and column names
         """)
-with col3:
+with col2:
     with st.expander(" [[Tool] Graydon](/tool_graydon)"):
         st.markdown("""
             The task involves checking the number of API calls made to the 'Dragen' service in the past year. 
