@@ -18,10 +18,6 @@ with col1:
         This tool line chart with customized data and column names
         """)
 with col2:
-    with st.expander(" [[Tool] Graydon](/tool_graydon)"):
-        st.markdown("""
-            The task involves checking the number of API calls made to the 'Dragen' service in the past year. 
-            """)
     with st.expander(" [[Tool] Gender](/tool_generate_gender)"):
         st.markdown("""
             The task is to prepare gender classification model. 
@@ -30,13 +26,11 @@ with col2:
         st.markdown("""
             The task is to plot data from a file.
             """)
-    with st.expander(" [[Tool] Save model](/tool_save_model)"):
-        st.markdown("""Save model from ML """)
 
 # Second title: Modeling
 st.markdown("## Modeling")
-col4, col5, col6 = st.columns(3)
-with col4:
+col3, col4 = st.columns(2)
+with col3:
     with st.expander(" [[Model] Membedding](/model_embedding)"):
         st.markdown("""
         Embedding model for binary classification task
@@ -49,27 +43,10 @@ with col4:
         st.markdown("""
         Classify the gender by first name
         """)
-with col5:
-    with st.expander(" [[Model] A score](/model_a_score)"):
+with col4:
+    with st.expander(" [[Model] Gender](/model_gender_classification)"):
         st.markdown("""
-        Application(check) Score for new users
-        """)
-    with st.expander(" [[Predict] A score](/predict_a_score)"):
-        st.markdown("""
-        Application(check) Score Model Prediction Page
-        """)
-with col6:
-    with st.expander(" [[Model] B score(sub)](/model_b_score_sub)"):
-        st.markdown("""
-        Bahavior(payment) Score for existing users (sub model)
-        """)
-    with st.expander(" [[Model] B score](/model_b_score)"):
-        st.markdown("""
-        Bahavior(payment) Score for existing users (final model)
-        """)
-    with st.expander(" [[Predict] B score](/predict_b_score)"):
-        st.markdown("""
-        Bahavior(payment) Score Model Prediction Page
+        Classify the gender by first name
         """)
 
 st.markdown("## Data Tools")
