@@ -26,7 +26,7 @@ class Logistic_Gender:
         std_cv_score = cv_scores.std()
         self.model = model
         return cv_scores, mean_cv_score, std_cv_score
-    def predict(self, test_X):
+    def predict(self, test_X, test_y = None):
         X_test_vec = self.vectorizer.transform(test_X)
         pred = self.model.predict(X_test_vec)
         return pred
