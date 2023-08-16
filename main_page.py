@@ -39,10 +39,6 @@ with col3:
         st.markdown("""
         Regression Model for future prediction
         """)
-    with st.expander(" [[Model] Gender](/model_gender_classification)"):
-        st.markdown("""
-        Classify the gender by first name
-        """)
 with col4:
     with st.expander(" [[Model] Gender](/model_gender_classification)"):
         st.markdown("""
