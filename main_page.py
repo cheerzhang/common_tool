@@ -49,11 +49,3 @@ with col4:
         Classify the gender by first name
         """)
 
-st.markdown("## Data Tools")
-st.markdown("## Data Analysis Task")
-col7, col8, col9 = st.columns(3)
-with col7:
-    with st.expander(" [[DA] 25-35 Female](/da_25_baseline)"):
-        st.markdown("""
-        Baseline of 25-35 female users' activities
-        """)
