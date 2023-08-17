@@ -11,6 +11,17 @@ import mlflow
 def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
 
+def log_mdoel(model_name, model, experiment_name = 'LogModel'):
+    mlflow.set_tracking_uri("http://16.170.205.178:5000")
+    experiment = mlflow.get_experiment_by_name(experiment_name)
+    if experiment is None:
+        experiment = mlflow.create_experiment(name=experiment_name)
+    with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
+        # Log parameters
+        mlflow.log_params({'name': model_name})
+        mlflow.sklearn.log_model(model, model_name)
+        return f"Log model - {model_name} succeed"
+
 def app():
     st.markdown('# Gender Classification Model')
     df_file = st.file_uploader("Choose 'gender' file :", key="gender_file_upload")
@@ -57,15 +68,8 @@ def app():
         # download model
         with col_option1:
             if st.button('Log logistic_gender Model'):
-                mlflow.set_tracking_uri("http://16.170.205.178:5000")
-                experiment = mlflow.get_experiment_by_name(experiment_name)
-                if experiment is None:
-                    experiment = mlflow.create_experiment(name=experiment_name)
-                with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
-                    # Log parameters
-                    mlflow.log_params({'name': 'logistic_gender.pkl'})
-                    mlflow.sklearn.log_model(obj_model.model, 'logistic_gender.pkl')
-                    st.success(f"Log model - logistic_gender succeed")
+                msg = log_mdoel('logistic_gender.pkl', obj_model.model)
+                st.success(msg)
         with col_option2:
             if st.button('Log CountVectorizer Model'):
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
