@@ -34,7 +34,7 @@ def app():
         with col_option1:
             option_model = st.selectbox('Which model is using?', ['Logistic', 'XGB'])
         with col_option2:
-            option_lambda = st.number_input('Insert Lambda', min_value=0.1, value=3.0)
+            option_lambda = st.number_input('Insert Lambda', min_value=0.1, value=1.0)
         if option_model == 'XGB':
             obj_model = model_ml.XGB_Gender(lambda_c = option_lambda)
         if option_model == 'Logistic':
