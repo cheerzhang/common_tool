@@ -62,9 +62,9 @@ def app():
             joblib.dump(obj_model.vectorizer, model_countvectorizer_filename)
             with open(model_countvectorizer_filename, 'rb') as f:
                 model_countvectorizer_bytes = f.read()
-            st.download_button(label='Download CountVectorizer Model', data=model_countvectorizer_bytes, file_name='countvectorizer_gender.pkl')
+            experiment_name = st.text_input('Experience Name', 'LogModel')
+            # st.download_button(label='Download CountVectorizer Model', data=model_countvectorizer_bytes, file_name='countvectorizer_gender.pkl')
             if st.button('Load CountVectorizer Model'):
-                experiment_name = st.text_input('Experience Name', 'LogModel')
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
                 if experiment is None:
                     experiment = mlflow.create_experiment(name=experiment_name)
