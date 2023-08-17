@@ -72,18 +72,8 @@ def app():
                 st.success(msg)
         with col_option2:
             if st.button('Log CountVectorizer Model'):
-                mlflow.set_tracking_uri("http://16.170.205.178:5000")
-                experiment = mlflow.get_experiment_by_name(experiment_name)
-                if experiment is None:
-                    experiment = mlflow.create_experiment(name=experiment_name)
-                with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
-                    # Log parameters
-                    mlflow.log_params({'name': 'countvectorizer_gender.pkl'})
-                    # Log the model - pytorch
-                    # mlflow.pytorch.log_model(model, artifact_path=model_name)
-                    # log model - sklearn
-                    mlflow.sklearn.log_model(obj_model.vectorizer, 'countvectorizer_gender.pkl')
-                    st.success(f"Log model - countvectorizer_gender succeed")
+                msg = log_mdoel('countvectorizer_gender.pkl', obj_model.vectorizer)
+                st.success(msg)
                 
         if df_pred is not None:
             df_p = pd.read_csv(df_pred)
