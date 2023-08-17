@@ -51,6 +51,7 @@ def app():
                    'recall': [recall_tr, recall_te]}
         st.dataframe(reesult)
         # download model
+        experiment_name = st.text_input('Experience Name', 'LogModel')
         with col_option1:
             if st.button('Log logistic_gender Model'):
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
@@ -63,7 +64,6 @@ def app():
                     mlflow.sklearn.log_model(obj_model.model, 'logistic_gender.pkl')
                     st.success(f"Log model - logistic_gender succeed")
         with col_option2:
-            experiment_name = st.text_input('Experience Name', 'LogModel')
             if st.button('Log CountVectorizer Model'):
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
                 experiment = mlflow.get_experiment_by_name(experiment_name)
