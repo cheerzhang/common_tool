@@ -3,7 +3,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from util import model_ml
-import joblib, mlflow
+import joblib
+import mlflow
 
 
 @st.cache_data
