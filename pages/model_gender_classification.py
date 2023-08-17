@@ -52,26 +52,26 @@ def app():
         st.dataframe(reesult)
         # download model
         with col_option1:
-            model_logistic_filename = "./models/logistic_gender.pkl"
-            joblib.dump(obj_model.model, model_logistic_filename)
-            with open(model_logistic_filename, 'rb') as f:
-                model_logistic_bytes = f.read()
-            st.download_button(label='Download Logistic Model', data=model_logistic_bytes, file_name='logistic_gender.pkl')
-        with col_option2:
-            model_countvectorizer_filename = "./models/countvectorizer_gender.pkl"
-            joblib.dump(obj_model.vectorizer, model_countvectorizer_filename)
-            with open(model_countvectorizer_filename, 'rb') as f:
-                model_countvectorizer_bytes = f.read()
-            experiment_name = st.text_input('Experience Name', 'LogModel')
-            # st.download_button(label='Download CountVectorizer Model', data=model_countvectorizer_bytes, file_name='countvectorizer_gender.pkl')
-            if st.button('Load CountVectorizer Model'):
+            if st.button('Log logistic_gender Model'):
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
                 experiment = mlflow.get_experiment_by_name(experiment_name)
                 if experiment is None:
                     experiment = mlflow.create_experiment(name=experiment_name)
                 with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
                     # Log parameters
-                    mlflow.log_params({'name': 'countvectorizer_gender'})
+                    mlflow.log_params({'name': 'logistic_gender.pkl'})
+                    mlflow.sklearn.log_model(obj_model.model, 'logistic_gender.pkl')
+                    st.success(f"Log model - logistic_gender succeed")
+        with col_option2:
+            experiment_name = st.text_input('Experience Name', 'LogModel')
+            if st.button('Log CountVectorizer Model'):
+                mlflow.set_tracking_uri("http://16.170.205.178:5000")
+                experiment = mlflow.get_experiment_by_name(experiment_name)
+                if experiment is None:
+                    experiment = mlflow.create_experiment(name=experiment_name)
+                with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
+                    # Log parameters
+                    mlflow.log_params({'name': 'countvectorizer_gender.pkl'})
                     # Log the model - pytorch
                     # mlflow.pytorch.log_model(model, artifact_path=model_name)
                     # log model - sklearn
