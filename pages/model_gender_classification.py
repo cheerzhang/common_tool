@@ -66,6 +66,7 @@ def app():
             # st.download_button(label='Download CountVectorizer Model', data=model_countvectorizer_bytes, file_name='countvectorizer_gender.pkl')
             if st.button('Load CountVectorizer Model'):
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
+                experiment = mlflow.get_experiment_by_name(experiment_name)
                 if experiment is None:
                     experiment = mlflow.create_experiment(name=experiment_name)
                     with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
