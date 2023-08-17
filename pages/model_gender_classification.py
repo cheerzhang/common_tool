@@ -30,6 +30,10 @@ def app():
         df['gender_code'] = df['gender_code'].map({'M': 1, 'F': 0})
         # Split the dataset into training and testing sets (80% train, 20% test)
         X_train, X_test, y_train, y_test = train_test_split(df['first_name'], df['gender_code'], test_size=0.2, random_state=42)
+
+
+        experiment_name = st.text_input('Experience Name', 'LogModel')
+
         col_option1, col_option2 = st.columns(2)
         with col_option1:
             option_model = st.selectbox('Which model is using?', ['Logistic', 'XGB'])
@@ -51,7 +55,6 @@ def app():
                    'recall': [recall_tr, recall_te]}
         st.dataframe(reesult)
         # download model
-        experiment_name = st.text_input('Experience Name', 'LogModel')
         with col_option1:
             if st.button('Log logistic_gender Model'):
                 mlflow.set_tracking_uri("http://16.170.205.178:5000")
