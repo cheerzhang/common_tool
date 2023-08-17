@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from util import model_ml
-import joblib
+import joblib, mlflow
 
 
 @st.cache_data
@@ -62,8 +62,20 @@ def app():
             with open(model_countvectorizer_filename, 'rb') as f:
                 model_countvectorizer_bytes = f.read()
             st.download_button(label='Download CountVectorizer Model', data=model_countvectorizer_bytes, file_name='countvectorizer_gender.pkl')
-
-
+            if st.button('Load CountVectorizer Model'):
+                experiment_name = st.text_input('Experience Name', 'LogModel')
+                mlflow.set_tracking_uri("http://16.170.205.178:5000")
+                if experiment is None:
+                    experiment = mlflow.create_experiment(name=experiment_name)
+                with mlflow.start_run(experiment_id=experiment.experiment_id) as run:
+                    # Log parameters
+                    mlflow.log_params({'name': 'countvectorizer_gender'})
+                    # Log the model - pytorch
+                    # mlflow.pytorch.log_model(model, artifact_path=model_name)
+                    # log model - sklearn
+                    mlflow.sklearn.log_model(obj_model.vectorizer, 'countvectorizer_gender.pkl')
+                    st.success(f"Log model - countvectorizer_gender succeed")
+                
         if df_pred is not None:
             df_p = pd.read_csv(df_pred)
             st.dataframe(df_p)
