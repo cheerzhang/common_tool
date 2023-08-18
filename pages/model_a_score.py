@@ -17,18 +17,17 @@ def app():
     and uploaded_embedding_file_d_street is not None \
     and uploaded_embedding_file_d_city is not None:
         df = pd.read_csv(uploaded_fraud_file)
-        with st.expander("EDA"):
-            with st.expander('get labels'):
-                st.dataframe(df.head(5))
-                bar_ = df.groupby(['category'])['id'].count()
-                st.bar_chart(data = bar_, use_container_width=True)
-                st.dataframe(bar_)
-                pie_ = df.groupby(['label'])['id'].count()
-                fig, ax = plt.subplots()
-                ax.pie(pie_.values, labels=pie_.index, autopct='%1.1f%%', startangle=90)
-                ax.axis('equal')
-                st.pyplot(fig)
-                st.write(f"total data size: {df.shape[0]}, bad transcations size: {df[df['label']==1].shape[0]}")
+        with st.expander('get labels'):
+            st.dataframe(df.head(5))
+            bar_ = df.groupby(['category'])['id'].count()
+            st.bar_chart(data = bar_, use_container_width=True)
+            st.dataframe(bar_)
+            pie_ = df.groupby(['label'])['id'].count()
+            fig, ax = plt.subplots()
+            ax.pie(pie_.values, labels=pie_.index, autopct='%1.1f%%', startangle=90)
+            ax.axis('equal')
+            st.pyplot(fig)
+            st.write(f"total data size: {df.shape[0]}, bad transcations size: {df[df['label']==1].shape[0]}")
 
 
 if __name__ == '__main__':
