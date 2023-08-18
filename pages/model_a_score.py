@@ -16,7 +16,9 @@ def app():
         "Select created_at start date for prediction",
         datetime.datetime.today() - timedelta(days=1)
     )
-    uploaded_fraud_file = st.file_uploader("Choose 'fraud_' csv file:", key="fraud_file_upload")
+    uploaded_fraud_file = st.file_uploader("Choose 'fraud_traning' csv file:", key="fraud_file_upload")
+    uploaded_fraud_va_file = st.file_uploader("Choose 'fraud_valiation' csv file:", key="fraud_file_upload")
+    uploaded_fraud_te_file = st.file_uploader("Choose 'fraud_test' csv file:", key="fraud_file_upload")
     uploaded_embedding_file_email_host = st.file_uploader("Choose '[Embedding]email_host' for embedding csv file:", key="email_host_embedding_upload")
     uploaded_embedding_file_email_server = st.file_uploader("Choose '[Embedding]email_server' for embedding csv file:", key="email_server_embedding_upload")
     uploaded_embedding_file_d_street = st.file_uploader("Choose '[Embedding]customer_delivery_street' for embedding csv file:", key="d_street_embedding_upload")
@@ -25,47 +27,25 @@ def app():
     and uploaded_embedding_file_email_server is not None \
     and uploaded_embedding_file_d_street is not None \
     and uploaded_embedding_file_d_city is not None:
-        obj_item = data_util.Fraud_FE()
-        df = obj_item.get_label(df, d2)
-        with st.expander('get labels'):
-            st.dataframe(df.head(5))
-            bar_ = df.groupby(['category'])['id'].count()
-            st.bar_chart(data = bar_, use_container_width=True)
-            st.dataframe(bar_)
-            pie_ = df.groupby(['label'])['id'].count()
-            fig, ax = plt.subplots()
-            ax.pie(pie_.values, labels=pie_.index, autopct='%1.1f%%', startangle=90)
-            ax.axis('equal')
-            st.pyplot(fig)
-            st.write(f"total data size: {df.shape[0]}, bad transcations size: {df[df['label']==1].shape[0]}")
+        df_tr = pd.read_csv(uploaded_fraud_file)
+        df_va = pd.read_csv(uploaded_fraud_va_file)
+        df_te = pd.read_csv(uploaded_fraud_te_file)
         with st.expander('split data'):
-            random_seed = st.number_input('Insert random seed', value=42, step=1)
-            train_, validtest_ = obj_item.split_data(df, 'id', 0.8, random_seed)
-            valid_, test_ = obj_item.split_data(validtest_, 'id', 0.5, random_seed)
-            st.write(f"""train bad radio: {round(train_[train_['label']==1].shape[0]/train_.shape[0], 4) * 100} %, 
-                        valid bad radio: {round(valid_[valid_['label']==1].shape[0]/valid_.shape[0], 4) * 100} %,
-                        test bad radio: {round(test_[test_['label']==1].shape[0]/test_.shape[0], 4) * 100} %""")
-            st.write(f"train size: {train_.shape}, valid size: {valid_.shape}, test size: {test_.shape}")
+            time_tool.start_timer()
+            st.write(f"""train bad radio: {round(df_tr[df_tr['label']==1].shape[0]/df_tr.shape[0], 4) * 100} %, 
+                        valid bad radio: {round(df_va[df_va['label']==1].shape[0]/df_va.shape[0], 4) * 100} %,
+                        test bad radio: {round(df_te[df_te['label']==1].shape[0]/df_te.shape[0], 4) * 100} %""")
+            st.write(f"train size: {df_tr.shape}, valid size: {df_va.shape}, test size: {df_te.shape}")
             st.success(f"Processed within {time_tool.end_timer()}")
         st.divider()
         st.subheader('FE and Feature Selection for Model')
         with st.spinner("Feature Engineering..."):
-            start_time = time.time()
-            dftr_fe = obj_item.get_features(train_)
-            dfva_fe = obj_item.get_features(valid_)
-            dfte_fe = obj_item.get_features(test_)
-            st.success(f"Processed within {time_tool.end_timer()}")
+            time_tool.start_timer()
             with st.expander("After FE, train set can be used to train embedding"):
-                st.dataframe(dftr_fe)
-            csv = convert_df(dftr_fe)
-            st.download_button(
-                label="Download the result CSV",
-                data=csv,
-                file_name='[Embedding]with_label.csv',
-                mime='text/csv',
-            )
+                st.dataframe(df_tr)
             st.success(f"FE for train, valid, test dataframe Done! time using: {time_tool.end_timer()}")
         with st.spinner("Embedding processing..."):
+            obj_item = data_util.Fraud_FE()
             time_tool.start_timer()
             emb_fe_arr = []
             df_emb_customer_email_host = pd.read_csv(uploaded_embedding_file_email_host)
