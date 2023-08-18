@@ -3,7 +3,7 @@ import mlflow
 import os, joblib
 
 # Set the MLflow tracking URI
-mlflow.set_tracking_uri("http://16.170.205.178:5000")
+mlflow.set_tracking_uri("http://16.171.60.208:5000")
 
 # Streamlit app
 def app():

@@ -12,7 +12,7 @@ def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
 
 def log_mdoel(model_name, model, experiment_name = 'LogModel'):
-    mlflow.set_tracking_uri("http://16.170.205.178:5000")
+    mlflow.set_tracking_uri("http://16.171.60.208:5000")
     experiment = mlflow.get_experiment_by_name(experiment_name)
     if experiment is None:
         experiment = mlflow.create_experiment(name=experiment_name)
