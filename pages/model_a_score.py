@@ -16,9 +16,9 @@ def app():
         "Select created_at start date for prediction",
         datetime.datetime.today() - timedelta(days=1)
     )
-    uploaded_fraud_file = st.file_uploader("Choose 'fraud_traning' csv file:", key="fraud_file_upload")
-    uploaded_fraud_va_file = st.file_uploader("Choose 'fraud_valiation' csv file:", key="fraud_file_upload")
-    uploaded_fraud_te_file = st.file_uploader("Choose 'fraud_test' csv file:", key="fraud_file_upload")
+    uploaded_fraud_file = st.file_uploader("Choose 'fraud_traning' csv file:", key="fraud_file_tr_upload")
+    uploaded_fraud_va_file = st.file_uploader("Choose 'fraud_valiation' csv file:", key="fraud_file_va_upload")
+    uploaded_fraud_te_file = st.file_uploader("Choose 'fraud_test' csv file:", key="fraud_file_te_upload")
     uploaded_embedding_file_email_host = st.file_uploader("Choose '[Embedding]email_host' for embedding csv file:", key="email_host_embedding_upload")
     uploaded_embedding_file_email_server = st.file_uploader("Choose '[Embedding]email_server' for embedding csv file:", key="email_server_embedding_upload")
     uploaded_embedding_file_d_street = st.file_uploader("Choose '[Embedding]customer_delivery_street' for embedding csv file:", key="d_street_embedding_upload")
