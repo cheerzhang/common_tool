@@ -36,7 +36,7 @@ class Time_Tool:
         msg = self.format_duration(self._end_time - self._start_time)
         return msg
 
-class FraudFE:
+class Fraud_FE:
     def __init__(self, name = 'fraud'):
         self.name = name
     def split_data(self, df, uid = 'id', ratio_train = 0.8, random_seed = 42):
