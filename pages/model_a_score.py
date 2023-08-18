@@ -16,18 +16,19 @@ def app():
     and uploaded_embedding_file_email_server is not None \
     and uploaded_embedding_file_d_street is not None \
     and uploaded_embedding_file_d_city is not None:
+        df = pd.read_csv(uploaded_fraud_file)
         with st.expander("EDA"):
-            dftr_fe = st.session_state['dftr_fe']
-            dfva_fe = st.session_state['dfva_fe']
-            dfte_fe = st.session_state['dfte_fe']
-            st.write(f"train data: size :blue[{dftr_fe.shape}], start from :blue[{dftr_fe['created_at'].min()}] to :blue[{dftr_fe['created_at'].max()}]")
-            st.write(f"valid data: size :blue[{dfva_fe.shape}], start from :blue[{dfva_fe['created_at'].min()}] to :blue[{dfva_fe['created_at'].max()}]")
-            st.write(f"test data: size :blue[{dfte_fe.shape}], start from :blue[{dfte_fe['created_at'].min()}] to :blue[{dfte_fe['created_at'].max()}]")
-            st.write(f"""train bad radio: :blue[{round(dftr_fe[dftr_fe['label']==1].shape[0]/dftr_fe.shape[0], 4) * 100} %] , 
-                        valid bad radio: :blue[{round(dfva_fe[dfva_fe['label']==1].shape[0]/dfva_fe.shape[0], 4) * 100} %] ,
-                        test bad radio: :blue[{round(dfte_fe[dfte_fe['label']==1].shape[0]/dfte_fe.shape[0], 4) * 100} %]""")
-            st.write(f"train size: :blue[{dftr_fe.shape}], valid size: :blue[{dfva_fe.shape}], test size: :blue[{dfte_fe.shape}]")
-
+            with st.expander('get labels'):
+                st.dataframe(df.head(5))
+                bar_ = df.groupby(['category'])['id'].count()
+                st.bar_chart(data = bar_, use_container_width=True)
+                st.dataframe(bar_)
+                pie_ = df.groupby(['label'])['id'].count()
+                fig, ax = plt.subplots()
+                ax.pie(pie_.values, labels=pie_.index, autopct='%1.1f%%', startangle=90)
+                ax.axis('equal')
+                st.pyplot(fig)
+                st.write(f"total data size: {df.shape[0]}, bad transcations size: {df[df['label']==1].shape[0]}")
 
 
 if __name__ == '__main__':
