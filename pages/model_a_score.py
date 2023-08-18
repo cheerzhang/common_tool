@@ -59,12 +59,9 @@ def app():
                 'customer_delivery_city': df_emb_d_city
             }
             for name in emb_df.keys():
-                arr_, df_ = obj_item.map_embedding(dftr_fe, emb_df[name], name)
-                _, df_va = obj_item.map_embedding(dfva_fe, emb_df[name], name)
-                _, df_te = obj_item.map_embedding(dfte_fe, emb_df[name], name)
-                dftr_fe = df_
-                dfva_fe = df_va
-                dfte_fe = df_te
+                arr_, dftr_fe = obj_item.map_embedding(df_tr, emb_df[name], name)
+                _, dfva_fe = obj_item.map_embedding(df_va, emb_df[name], name)
+                _, dfte_fe = obj_item.map_embedding(df_te, emb_df[name], name)
                 emb_fe_arr = emb_fe_arr + arr_
             st.success(f"Embedding processed within {time_tool.end_timer()}")
 
