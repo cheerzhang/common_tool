@@ -5,14 +5,18 @@ import matplotlib.pyplot as plt
 from util import model_ml
 import joblib
 import mlflow
+import json
 
+with open('config.json') as config_file:
+    config = json.load(config_file)
 
 @st.cache_data
 def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
 
 def log_mdoel(model_name, model, experiment_name = 'LogModel'):
-    mlflow.set_tracking_uri("http://16.171.60.208:5000")
+    tracking_uri = config["tracking_uri"]
+    mlflow.set_tracking_uri(tracking_uri)
     experiment = mlflow.get_experiment_by_name(experiment_name)
     if experiment is None:
         experiment = mlflow.create_experiment(name=experiment_name)
