@@ -1,5 +1,5 @@
 import pandas as pd
-import time
+import time, random
 
 class DATA_PROCESS:
     def __init__(self, name="data function"):
@@ -35,3 +35,19 @@ class Time_Tool:
         self._end_time = end_time
         msg = self.format_duration(self._end_time - self._start_time)
         return msg
+
+class FraudFE:
+    def __init__(self, name = 'fraud'):
+        self.name = name
+    def split_data(self, df, uid = 'id', ratio_train = 0.8, random_seed = 42):
+        random.seed(random_seed)
+        uniq_ = df[uid].unique()
+        n_all = len(uniq_)
+        n_20p_v = round(n_all * (1 - ratio_train))
+        valid_user = random.choices(uniq_, k=n_20p_v)
+        train_user = [item for item in uniq_ if item not in valid_user]
+        df_train = df[df[uid].isin(train_user)]
+        df_valid = df[df[uid].isin(valid_user)]
+        # X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
+        # X_valid, X_test, y_valid, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
+        return df_train, df_valid
