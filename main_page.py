@@ -44,4 +44,8 @@ with col4:
         st.markdown("""
         Classify the gender by first name
         """)
+    with st.expander(" [[Model] UserScore](/model_a_score)"):
+        st.markdown("""
+        Predict the new user's quality
+        """)
 
