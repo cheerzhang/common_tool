@@ -78,7 +78,6 @@ def app():
                 'customer_delivery_street': df_emb_d_street,
                 'customer_delivery_city': df_emb_d_city
             }
-            obj_item = data_ml.Fraud_FE()
             for name in emb_df.keys():
                 arr_, df_ = obj_item.map_embedding(dftr_fe, emb_df[name], name)
                 _, df_va = obj_item.map_embedding(dfva_fe, emb_df[name], name)

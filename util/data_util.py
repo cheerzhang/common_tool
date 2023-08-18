@@ -48,9 +48,24 @@ class Fraud_FE:
         train_user = [item for item in uniq_ if item not in valid_user]
         df_train = df[df[uid].isin(train_user)]
         df_valid = df[df[uid].isin(valid_user)]
-        # X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
-        # X_valid, X_test, y_valid, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
         return df_train, df_valid
+    
+    def get_label(self, df, d2):
+        d = 90
+        d2_timestamp = pd.Timestamp(d2)
+        df['created_at'] = pd.to_datetime(df['created_at'], errors='coerce')
+        df['paid_at'] = pd.to_datetime(df['paid_at'], errors='coerce')
+        condition_good_df = df[(df['paid_at'] - df['created_at']).dt.days <= d]
+        remaining_indices = df.index.difference(condition_good_df.index)
+        condition_bad_df = df.loc[remaining_indices][(df.loc[remaining_indices]['paid_at'].isnull()) & ((d2_timestamp - df.loc[remaining_indices]['created_at']).dt.days > d)]
+        condition_good_df['category'] = 'Good'
+        condition_bad_df['category'] = condition_bad_df['category'].fillna('Unknown')
+        combind_df = pd.concat([condition_bad_df, condition_good_df], axis=0)
+        label_maps = {'Good': 0, 'Fraude op naam': 1, 'Adres fraude': 2, 'Handelsonbekwaam': 3, 'Unknown': 4}
+        combind_df['class_labels'] = combind_df['category'].map(label_maps)
+        combind_df['label'] = combind_df['class_labels'].apply(lambda x: 1 if x>0 else 0)
+        return combind_df
+    
     def get_features(self, df):
         to_lower_list = ['company_name', 'customer_postcode',
                          'customer_first_name', 'customer_last_name', 'customer_initials', 'customer_email',
@@ -115,3 +130,16 @@ class Fraud_FE:
         df['order_week']  = df['created_at'].dt.dayofweek
         df['order_hour']  = df['created_at'].dt.hour
         return df
+    
+    def map_embedding(self, df, emb_df, column_name):
+        emb_arr = emb_df.drop('Name', axis=1).columns
+        merged_df = df.merge(emb_df, 
+                                  left_on=column_name, 
+                                  right_on='Name', 
+                                  how='left')
+        merged_df = merged_df.drop(columns=['Name'])
+        for item in emb_arr:
+            new_column_name = f"emb_{column_name}_{item}" 
+            merged_df.rename(columns={item: new_column_name}, inplace=True)
+        emb_fe_arr = [f"emb_{column_name}_{item}"  for item in emb_arr]
+        return emb_fe_arr, merged_df
