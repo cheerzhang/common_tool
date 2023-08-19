@@ -64,6 +64,14 @@ def app():
                 _, dfte_fe = obj_item.map_embedding(df_te, emb_df[name], name)
                 emb_fe_arr = emb_fe_arr + arr_
             st.success(f"Embedding processed within {time_tool.end_timer()}")
+        st.divider()
+        with st.spinner("check IV and L1..."):
+            numeric_features = dftr_fe.select_dtypes(include=['int64', 'float64'])
+            all_emb_columns = []
+            for name in emb_df.keys():
+                all_emb_columns = all_emb_columns + emb_df[name].columns
+            option_add_columns = st.multiselect('Add columns', all_emb_columns, [])
+            st.dataframe(dftr_fe, use_container_width=True)
 
 if __name__ == '__main__':
     app()
