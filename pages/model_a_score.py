@@ -67,8 +67,7 @@ def app():
         st.divider()
         with st.spinner("check IV and L1..."):
             numeric_features = dftr_fe.select_dtypes(include=['int64', 'float64'])
-            all_emb_columns = [col for name in emb_df.keys() for col in emb_df[name].columns]
-            option_add_columns = st.multiselect('Add columns', all_emb_columns, [])
+            option_add_columns = st.multiselect('Add columns', emb_fe_arr, [])
             st.dataframe(dftr_fe[numeric_features+option_add_columns], use_container_width=True)
 
 if __name__ == '__main__':
