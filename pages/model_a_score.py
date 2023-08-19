@@ -68,7 +68,8 @@ def app():
         with st.spinner("check IV and L1..."):
             numeric_features = dftr_fe.select_dtypes(include=['int64', 'float64'])
             option_add_columns = st.multiselect('Add columns', emb_fe_arr, [])
-            st.dataframe(dftr_fe[numeric_features+option_add_columns], use_container_width=True)
+            df_tr_fe = dftr_fe[option_add_columns]
+            st.dataframe(df_tr_fe, use_container_width=True)
 
 if __name__ == '__main__':
     app()
