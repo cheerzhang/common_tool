@@ -67,7 +67,8 @@ def app():
         reesult = {'0': ['train set', 'test set'], 
                    'accuracy': [accuracy_tr, accuracy_te],
                    'precision': [precision_tr, precision_te],
-                   'recall': [recall_tr, recall_te]}
+                   'recall': [recall_tr, recall_te],
+                   'f1': [f1_tr, f1_te]}
         st.dataframe(reesult)
         # download model
         with col_option1:
