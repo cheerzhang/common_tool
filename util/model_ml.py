@@ -1,5 +1,5 @@
 import xgboost as xgb
-from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.linear_model import LogisticRegression
@@ -35,4 +35,5 @@ class Logistic_Gender:
         accuracy = accuracy_score(test_y, pred)
         recall = recall_score(test_y, pred)
         precision = precision_score(test_y, pred)
-        return accuracy, recall, precision
+        f1 = f1_score(test_y, pred)
+        return accuracy, recall, precision, f1

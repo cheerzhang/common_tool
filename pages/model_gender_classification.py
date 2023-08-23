@@ -61,9 +61,9 @@ def app():
         obj_model.train(X_train, y_train, X_test, y_test)
         # Evaluate the model's accuracy on the test set
         # train set
-        accuracy_tr, recall_tr, precision_tr = obj_model.metric(X_train, y_train)
+        accuracy_tr, recall_tr, precision_tr, f1_tr = obj_model.metric(X_train, y_train)
         # test set
-        accuracy_te, recall_te, precision_te = obj_model.metric(X_test, y_test)
+        accuracy_te, recall_te, precision_te, f1_te = obj_model.metric(X_test, y_test)
         reesult = {'0': ['train set', 'test set'], 
                    'accuracy': [accuracy_tr, accuracy_te],
                    'precision': [precision_tr, precision_te],

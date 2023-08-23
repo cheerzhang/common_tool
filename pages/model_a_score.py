@@ -21,13 +21,11 @@ def app():
     uploaded_fraud_te_file = st.file_uploader("Choose 'fraud_test' csv file:", key="fraud_file_te_upload")
     uploaded_embedding_file_email_host = st.file_uploader("Choose '[Embedding]email_host' for embedding csv file:", key="email_host_embedding_upload")
     uploaded_embedding_file_email_server = st.file_uploader("Choose '[Embedding]email_server' for embedding csv file:", key="email_server_embedding_upload")
-    uploaded_embedding_file_d_street = st.file_uploader("Choose '[Embedding]customer_delivery_street' for embedding csv file:", key="d_street_embedding_upload")
     uploaded_embedding_file_d_city = st.file_uploader("Choose '[Embedding]customer_delivery_city' for embedding csv file:", key="d_city_embedding_upload")
     uploaded_embedding_file_post_code_2 = st.file_uploader("Choose '[Embedding]postcode_2str' for embedding csv file:", key="post_2_embedding_upload")
     uploaded_embedding_file_city = st.file_uploader("Choose '[Embedding]customer_city' for embedding csv file:", key="city_embedding_upload")
     if uploaded_embedding_file_email_host is not None \
     and uploaded_embedding_file_email_server is not None \
-    and uploaded_embedding_file_d_street is not None \
     and uploaded_embedding_file_d_city is not None \
     and uploaded_embedding_file_post_code_2 is not None \
     and uploaded_embedding_file_city is not None:
@@ -54,14 +52,12 @@ def app():
             emb_fe_arr = []
             df_emb_customer_email_host = pd.read_csv(uploaded_embedding_file_email_host)
             df_emb_customer_email_server = pd.read_csv(uploaded_embedding_file_email_server)
-            df_emb_d_street = pd.read_csv(uploaded_embedding_file_d_street)
             df_emb_d_city = pd.read_csv(uploaded_embedding_file_d_city)
             df_emb_post_2 = pd.read_csv(uploaded_embedding_file_post_code_2)
             df_emb_city = pd.read_csv(uploaded_embedding_file_city)
             emb_df = {
                 'email_host': df_emb_customer_email_host,
                 'email_server': df_emb_customer_email_server,
-                'customer_delivery_street': df_emb_d_street,
                 'customer_delivery_city': df_emb_d_city,
                 'postcode_2str': df_emb_post_2,
                 'customer_city': df_emb_city
