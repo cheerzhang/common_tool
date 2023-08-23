@@ -1,9 +1,12 @@
 import streamlit as st
 import mlflow
-import os, joblib
+import os, joblib, json
 
 # Set the MLflow tracking URI
-mlflow.set_tracking_uri("http://16.171.60.208:5000")
+with open('config.json') as config_file:
+    config = json.load(config_file)
+tracking_uri = config["tracking_uri"]
+mlflow.set_tracking_uri(tracking_uri)
 
 # Streamlit app
 def app():
