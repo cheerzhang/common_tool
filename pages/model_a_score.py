@@ -23,10 +23,14 @@ def app():
     uploaded_embedding_file_email_server = st.file_uploader("Choose '[Embedding]email_server' for embedding csv file:", key="email_server_embedding_upload")
     uploaded_embedding_file_d_street = st.file_uploader("Choose '[Embedding]customer_delivery_street' for embedding csv file:", key="d_street_embedding_upload")
     uploaded_embedding_file_d_city = st.file_uploader("Choose '[Embedding]customer_delivery_city' for embedding csv file:", key="d_city_embedding_upload")
+    uploaded_embedding_file_post_code_2 = st.file_uploader("Choose '[Embedding]postcode_2str' for embedding csv file:", key="post_2_embedding_upload")
+    uploaded_embedding_file_city = st.file_uploader("Choose '[Embedding]customer_city' for embedding csv file:", key="city_embedding_upload")
     if uploaded_embedding_file_email_host is not None \
     and uploaded_embedding_file_email_server is not None \
     and uploaded_embedding_file_d_street is not None \
-    and uploaded_embedding_file_d_city is not None:
+    and uploaded_embedding_file_d_city is not None \
+    and uploaded_embedding_file_post_code_2 is not None \
+    and uploaded_embedding_file_city is not None:
         df_tr = pd.read_csv(uploaded_fraud_file)
         df_va = pd.read_csv(uploaded_fraud_va_file)
         df_te = pd.read_csv(uploaded_fraud_te_file)
@@ -52,11 +56,15 @@ def app():
             df_emb_customer_email_server = pd.read_csv(uploaded_embedding_file_email_server)
             df_emb_d_street = pd.read_csv(uploaded_embedding_file_d_street)
             df_emb_d_city = pd.read_csv(uploaded_embedding_file_d_city)
+            df_emb_post_2 = pd.read_csv(uploaded_embedding_file_post_code_2)
+            df_emb_city = pd.read_csv(uploaded_embedding_file_city)
             emb_df = {
                 'email_host': df_emb_customer_email_host,
                 'email_server': df_emb_customer_email_server,
                 'customer_delivery_street': df_emb_d_street,
-                'customer_delivery_city': df_emb_d_city
+                'customer_delivery_city': df_emb_d_city,
+                'postcode_2str': df_emb_post_2,
+                'customer_city': df_emb_city
             }
             for name in emb_df.keys():
                 arr_, dftr_fe = obj_item.map_embedding(df_tr, emb_df[name], name)
@@ -66,10 +74,25 @@ def app():
             st.success(f"Embedding processed within {time_tool.end_timer()}")
         st.divider()
         with st.spinner("check IV and L1..."):
-            numeric_features = dftr_fe.select_dtypes(include=['int64', 'float64'])
-            option_add_columns = st.multiselect('Add columns', emb_fe_arr, [])
-            df_tr_fe = dftr_fe[option_add_columns]
-            st.dataframe(df_tr_fe, use_container_width=True)
+            fe_columns = ['first_name_len', 'last_name_len', 'initials_len', 'same_as_first_name',
+                                            'gender', 'age', 'birth_month', 'birth_day', 'birth_week',
+                                            'postcode_2', 'postcode_4',
+                                            'same_as_street', 'same_as_city', 'house_number', 'd_house_number',
+                                            'same_as_house_number', 'same_as_house_extension',
+                                            'total_price_inc_vat', 'client_id',
+                                            'order_month', 'order_day', 'order_week', 'order_hour']
+            numeric_features = emb_fe_arr + fe_columns
+            st.dataframe(dftr_fe, use_container_width=True)
+            with st.expander('IV'):
+                iv_arr = []
+                iv_train_df = dftr_fe[numeric_features + ['label']]
+                iv_train_df = iv_train_df.fillna(-1)
+                iv_obj = data_util.IV()
+                for item in numeric_features:
+                    iv, counts = iv_obj.calculate_woe_iv(df = iv_train_df,  bin_col = item, target_col = 'label', num_bins = 10, data_range=None, show_report=False)
+                    iv_arr.append(iv)
+                data = pd.DataFrame({'feature': numeric_features,'iv_value': iv_arr})
+                data['tab'] = data['iv_value'].apply(lambda x: iv_obj.get_iv_tab(x))
 
 if __name__ == '__main__':
     app()
